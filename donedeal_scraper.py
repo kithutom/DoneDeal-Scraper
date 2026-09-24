@@ -8,8 +8,11 @@ Downloads DoneDeal car ads and appends them to two CSVs (a star schema):
 Usage:
     python donedeal_scraper.py urls.txt     a file of ad URLs, one per line
     python donedeal_scraper.py <ad-url>     a single ad
+    python donedeal_scraper.py --make Volkswagen --model Golf --count 50
+                                            the first 50 ads of a DoneDeal search
 """
 
+import argparse
 import csv
 import html
 import json
@@ -20,6 +23,7 @@ import time
 from datetime import date, datetime
 from pathlib import Path
 from urllib import robotparser
+from urllib.parse import quote
 
 import requests
 from bs4 import BeautifulSoup
@@ -35,6 +39,8 @@ USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
 MIN_DELAY, MAX_DELAY = 3.0, 5.0     # seconds between requests (randomised)
 TIMEOUT = 20                        # seconds before a request gives up
+RETRY_WAIT = 60                     # seconds to pause after HTTP 429 (x attempt)
+MAX_RETRIES = 3                     # 429 retries per page before giving up
 
 CARS_COLUMNS = [
     "ad_id", "url", "make", "model", "trim", "year", "mileage_km", "fuel_type",
@@ -63,15 +69,30 @@ def load_robots():
         robots.parse([])
 
 
+def retry_wait(response, attempt):
+    """Seconds to back off after a 429: the server's Retry-After if it gives
+    a number, otherwise RETRY_WAIT, growing with each attempt."""
+    retry_after = response.headers.get("Retry-After", "")
+    return int(retry_after) if retry_after.isdigit() else RETRY_WAIT * attempt
+
+
 def fetch(url):
-    """Politely download one page. Raises an exception saying why if it fails."""
+    """Politely download one page. Raises an exception saying why if it fails.
+    On HTTP 429 (too many requests) it pauses and retries the same page."""
     if not robots.can_fetch(USER_AGENT, url):
         raise RuntimeError("blocked by robots.txt")
-    time.sleep(random.uniform(MIN_DELAY, MAX_DELAY))
-    response = session.get(url, timeout=TIMEOUT)
-    if response.status_code != 200:
-        raise RuntimeError(f"HTTP {response.status_code}")
-    return response.text
+    for attempt in range(1, MAX_RETRIES + 2):
+        time.sleep(random.uniform(MIN_DELAY, MAX_DELAY))
+        response = session.get(url, timeout=TIMEOUT)
+        if response.status_code == 429 and attempt <= MAX_RETRIES:
+            wait = retry_wait(response, attempt)
+            print(f"         rate limited (HTTP 429), waiting {wait}s "
+                  f"before retry {attempt}/{MAX_RETRIES}...")
+            time.sleep(wait)
+            continue
+        if response.status_code != 200:
+            raise RuntimeError(f"HTTP {response.status_code}")
+        return response.text
 
 
 # ==========================================================================
@@ -237,11 +258,57 @@ def read_urls(source):
     return [line.strip() for line in lines if line.strip() and not line.startswith("#")]
 
 
+def search_urls(make, model, count):
+    """
+    The ad URLs of the first `count` results of a DoneDeal search, e.g.
+    donedeal.ie/cars/Volkswagen/Golf. Each results page holds 30 ads in the
+    same __NEXT_DATA__ JSON as an ad page (props.pageProps.ads); '?start=30'
+    gives the next page. Promoted 'spotlight' ads are left out because they
+    repeat on every page.
+    """
+    base = f"https://www.donedeal.ie/cars/{quote(make)}/{quote(model)}"
+    urls, start = [], 0
+    while len(urls) < count:
+        tag = BeautifulSoup(fetch(f"{base}?start={start}"), "html.parser").find(
+            "script", id="__NEXT_DATA__")
+        if tag is None or not tag.string:
+            raise RuntimeError("no __NEXT_DATA__ JSON in search page")
+        page = json.loads(tag.string)["props"]["pageProps"]
+        ads = page.get("ads") or []
+        if not ads:
+            break                           # no (more) results
+        for ad in ads:
+            url = ad["friendlyUrl"].split("?")[0]
+            if url not in urls:
+                urls.append(url)
+        paging = page.get("paging") or {}
+        if paging.get("currentPage", 0) >= paging.get("totalPages", 0):
+            break                           # that was the last page
+        start = paging["nextFrom"]
+    return urls[:count]
+
+
 def main():
-    if len(sys.argv) != 2:
-        sys.exit(__doc__)
-    urls = read_urls(sys.argv[1])
+    parser = argparse.ArgumentParser(description="DoneDeal used-car ad scraper.",
+                                     epilog=__doc__,
+                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("source", nargs="?", help="an ad URL or a file of ad URLs")
+    parser.add_argument("--make", help="search mode: car make, e.g. Volkswagen")
+    parser.add_argument("--model", help="search mode: car model, e.g. Golf")
+    parser.add_argument("--count", type=int, default=30,
+                        help="search mode: how many ads to scrape (default 30)")
+    args = parser.parse_args()
+    if bool(args.source) == bool(args.make and args.model):
+        parser.error("give either an ad URL / URL file, or --make and --model")
+
     load_robots()
+    if args.source:
+        urls = read_urls(args.source)
+    else:
+        urls = search_urls(args.make, args.model, args.count)
+        print(f"Search found {len(urls)} {args.make} {args.model} ads.\n")
+        if not urls:
+            sys.exit("No results - check the make and model spelling on donedeal.ie.")
 
     today = date.today()
     known_cars = {key[0] for key in read_keys(CARS_CSV, ["ad_id"])}

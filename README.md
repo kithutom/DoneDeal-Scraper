@@ -30,6 +30,19 @@ A single ad can also be scraped directly:
 .venv\Scripts\python donedeal_scraper.py https://www.donedeal.ie/cars-for-sale/<title>/<ad-id>
 ```
 
+Or let the scraper find the ads itself: give a make and model and how many
+ads to take from the top of DoneDeal's search results (default 30):
+
+```powershell
+.venv\Scripts\python donedeal_scraper.py --make Volkswagen --model Golf --count 50
+```
+
+It reads the search result pages (30 ads each, promoted "spotlight" ads left
+out) and then scrapes each ad as usual. Out-of-scope ads (e.g. electric or
+priced in GBP) are still skipped, so fewer than `--count` rows may be added.
+Make and model are spelled as on donedeal.ie (`/cars/<Make>/<Model>`); a
+misspelling finds no results.
+
 Each ad prints one line (`OK`, `SKIPPED`, `DONE` or `FAILED` with a reason),
 followed by a one-line summary. Re-running is safe: ads already recorded today
 are not downloaded or written again. To track price changes, re-run the same
