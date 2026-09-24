@@ -1,0 +1,7 @@
+﻿ad_id,url,make,model,trim,year,mileage_km,fuel_type,engine_size_litres,engine_power_hp,transmission,body_type,num_doors,previous_owners,is_import,seller_type,county,warranty,road_tax_eur,safety_rating
+42787197,https://www.donedeal.ie/cars-for-sale/2016-volkswagen-golf-1-2-tsi-automatic-63000km/42787197,Volkswagen,Golf,,2016,63000,Petrol,1.2,,Automatic,Hatchback,5,1,True,Dealer,Limerick,True,200,
+42782499,https://www.donedeal.ie/cars-for-sale/volkswagen-golf-1-5-tsi-rline/42782499,Volkswagen,Golf,R-Line,2019,95000,Petrol,1.5,150,Manual,Estate,5,2,False,Private,Galway,False,200,
+42794168,https://www.donedeal.ie/cars-for-sale/2016-mercedes-benz-b180-style-1-6-petrol-auto/42794168,Mercedes-Benz,B-Class,STYLE,2016,64000,Petrol,1.6,122,Automatic,MPV,5,1,True,Dealer,Limerick,True,270,5
+42799160,https://www.donedeal.ie/cars-for-sale/2016-audi-a3-saloon-1-4-tfsi-deposit-taken/42799160,Audi,A3,,2016,60000,Petrol,1.4,,Automatic,Saloon,5,1,True,Dealer,Limerick,True,200,
+42414339,https://www.donedeal.ie/cars-for-sale/volkswagen-polo-polo-gti-1-8-tsi/42414339,Volkswagen,Polo,Comfortline +,2015,77000,Petrol,1.8,90,Automatic,Hatchback,5,1,,Dealer,Dublin,True,,5
+42825094,https://www.donedeal.ie/cars-for-sale/volkswagen-golf-1-2-petrol-automatic/42825094,Volkswagen,Golf,TRENDLINE,2014,40280,Petrol,1.2,85,Automatic,Hatchback,5,1,,Dealer,Dublin,False,180,5
