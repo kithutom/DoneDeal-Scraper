@@ -2,7 +2,7 @@
 
 A single-file Python scraper that collects used-car ads from DoneDeal.ie and
 appends them to a star-schema CSV dataset: one table of cars and one table of
-price observations over time. The dataset is intended for training a model
+prices. Each ad is scraped once only. The dataset is intended for training a model
 that predicts used-car depreciation in Ireland.
 
 ## Setup (Windows)
@@ -31,26 +31,30 @@ A single ad can also be scraped directly:
 ```
 
 Or let the scraper find the ads itself: give a make and model and how many
-ads to take from the top of DoneDeal's search results (default 30):
+new ads to take from DoneDeal's search results (default 30):
 
 ```powershell
 .venv\Scripts\python donedeal_scraper.py --make Volkswagen --model Golf --count 50
 ```
 
 It reads the search result pages (30 ads each, promoted "spotlight" ads left
-out) and then scrapes each ad as usual. Out-of-scope ads (e.g. electric or
+out), skipping ads that are already scraped, until it has `--count` new ads,
+and then scrapes each one as usual. So running `--count 200` today and again
+tomorrow gives 400 different cars. Out-of-scope ads (e.g. electric or
 priced in GBP) are still skipped, so fewer than `--count` rows may be added.
 Make and model are spelled as on donedeal.ie (`/cars/<Make>/<Model>`); a
 misspelling finds no results.
 
 Each ad prints one line (`OK`, `SKIPPED`, `DONE` or `FAILED` with a reason),
-followed by a one-line summary. Re-running is safe: ads already recorded today
-are not downloaded or written again. To track price changes, re-run the same
-URL file on later days.
+followed by a one-line summary. Re-running is safe: an ad already in
+`carData.csv`, or found out of scope on an earlier run (its ID is kept in
+`data/skipped_ads.txt`), is never downloaded again. To scrape an ad again,
+delete its row (or its line in `skipped_ads.txt`).
 
 ## Output (`data/`)
 
-**`cars.csv`**: vehicle dimension, one row per unique ad (primary key `ad_id`)
+**`carData.csv`**: one row per unique ad (primary key `ad_id`), with the
+vehicle details and the price on the day it was scraped
 
 | column | meaning |
 |---|---|
@@ -71,13 +75,7 @@ URL file on later days.
 | warranty | True / False |
 | road_tax_eur | annual road tax |
 | safety_rating | Euro NCAP stars (0-5) |
-
-**`listings.csv`**: fact table, one row per ad per scrape date
-
-| column | meaning |
-|---|---|
-| ad_id | foreign key to cars.csv |
-| date_scraped | date of this observation |
+| date_scraped | date the ad was scraped |
 | price_eur | asking price in euro (empty if not given) |
 | price_available | False if the price is missing or on request |
 | nct_months_remaining | months until NCT expiry (negative = expired) |
@@ -95,9 +93,8 @@ Missing values are left empty.
 3. **Cleaning**: converts text to numbers ("63,000 km" to 63000, "1.2 L" to 1.2,
    "150 hp" to 150), standardises fuel and seller type, calculates NCT months
    and import status.
-4. **Storing**: appends to the CSVs. A car is added to `cars.csv` only the
-   first time its `ad_id` is seen; `listings.csv` gets at most one row per ad
-   per day.
+4. **Storing**: appends one row to `carData.csv` for every new ad. Ads
+   whose `ad_id` is already in `carData.csv` or `skipped_ads.txt` are never fetched.
 5. **Main loop**: reads the URLs, processes each one, and prints the result.
    A failing ad is reported and skipped; it never stops the run.
 

@@ -1,15 +1,17 @@
 """
 donedeal_scraper.py - DoneDeal used-car ad scraper.
 
-Downloads DoneDeal car ads and appends them to two CSVs (a star schema):
-    data/cars.csv      one row per unique ad          (vehicle dimension)
-    data/listings.csv  one row per ad per scrape date (fact table)
+Downloads DoneDeal car ads and appends them to one CSV:
+    data/carData.csv   one row per ad (vehicle details + price on the day scraped)
+Every ad is scraped once only: ads already in carData.csv, or listed in
+data/skipped_ads.txt as out of scope, are never downloaded again.
 
 Usage:
     python donedeal_scraper.py urls.txt     a file of ad URLs, one per line
     python donedeal_scraper.py <ad-url>     a single ad
     python donedeal_scraper.py --make Volkswagen --model Golf --count 50
-                                            the first 50 ads of a DoneDeal search
+                                            the first 50 not-yet-scraped ads
+                                            of a DoneDeal search
 """
 
 import argparse
@@ -32,8 +34,8 @@ from bs4 import BeautifulSoup
 # Settings
 # ==========================================================================
 OUTPUT_DIR = Path(__file__).resolve().parent / "data"
-CARS_CSV = OUTPUT_DIR / "cars.csv"
-LISTINGS_CSV = OUTPUT_DIR / "listings.csv"
+CAR_DATA_CSV = OUTPUT_DIR / "carData.csv"
+SKIPPED_TXT = OUTPUT_DIR / "skipped_ads.txt"   # IDs of out-of-scope ads
 
 USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
               "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
@@ -41,15 +43,18 @@ MIN_DELAY, MAX_DELAY = 3.0, 5.0     # seconds between requests (randomised)
 TIMEOUT = 20                        # seconds before a request gives up
 RETRY_WAIT = 60                     # seconds to pause after HTTP 429 (x attempt)
 MAX_RETRIES = 3                     # 429 retries per page before giving up
+BLOCKED_ADVICE = ("DoneDeal refused the request (HTTP 403): it has probably "
+                  "blocked this IP for\nrequesting too fast. Everything scraped "
+                  "so far is saved. Wait an hour or more\nbefore running again, "
+                  "and use a smaller --count.")
 
-CARS_COLUMNS = [
+COLUMNS = [
     "ad_id", "url", "make", "model", "trim", "year", "mileage_km", "fuel_type",
     "engine_size_litres", "engine_power_hp", "transmission", "body_type",
     "num_doors", "previous_owners", "is_import", "seller_type", "county",
     "warranty", "road_tax_eur", "safety_rating",
+    "date_scraped", "price_eur", "price_available", "nct_months_remaining",
 ]
-LISTINGS_COLUMNS = ["ad_id", "date_scraped", "price_eur", "price_available",
-                    "nct_months_remaining"]
 
 
 # ==========================================================================
@@ -58,6 +63,10 @@ LISTINGS_COLUMNS = ["ad_id", "date_scraped", "price_eur", "price_available",
 session = requests.Session()
 session.headers["User-Agent"] = USER_AGENT
 robots = robotparser.RobotFileParser()
+
+
+class Blocked(Exception):
+    """DoneDeal answered HTTP 403: it has stopped serving us, so the run ends."""
 
 
 def load_robots():
@@ -78,7 +87,9 @@ def retry_wait(response, attempt):
 
 def fetch(url):
     """Politely download one page. Raises an exception saying why if it fails.
-    On HTTP 429 (too many requests) it pauses and retries the same page."""
+    On HTTP 429 (too many requests) it pauses and retries the same page.
+    On HTTP 403 (forbidden) it raises Blocked, as retrying would only make
+    the block last longer."""
     if not robots.can_fetch(USER_AGENT, url):
         raise RuntimeError("blocked by robots.txt")
     for attempt in range(1, MAX_RETRIES + 2):
@@ -90,6 +101,8 @@ def fetch(url):
                   f"before retry {attempt}/{MAX_RETRIES}...")
             time.sleep(wait)
             continue
+        if response.status_code == 403:
+            raise Blocked(url)
         if response.status_code != 200:
             raise RuntimeError(f"HTTP {response.status_code}")
         return response.text
@@ -176,11 +189,13 @@ def is_import(country, previous_country):
     return False if current == "ireland" else None
 
 
-def build_rows(ad, attrs, url, today):
-    """Turn one ad into a cars.csv row and a listings.csv row."""
-    ad_id = str(ad["id"])
-    car = {
-        "ad_id": ad_id,
+def build_row(ad, attrs, url, today):
+    """Turn one ad into a carData.csv row."""
+    price = ad.get("priceEuro")
+    if ad.get("priceOnRequest") or not isinstance(price, (int, float)) or price <= 0:
+        price = None
+    return {
+        "ad_id": str(ad["id"]),
         "url": url.split("?")[0],
         "make": text(attrs.get("make")),
         "model": text(attrs.get("model")),
@@ -201,18 +216,11 @@ def build_rows(ad, attrs, url, today):
         "warranty": any(m.get("field") == "warranty" for m in ad.get("meritsV2") or []),
         "road_tax_eur": integer(attrs.get("roadTax")),
         "safety_rating": integer(attrs.get("safetyRating")),
-    }
-    price = ad.get("priceEuro")
-    if ad.get("priceOnRequest") or not isinstance(price, (int, float)) or price <= 0:
-        price = None
-    listing = {
-        "ad_id": ad_id,
         "date_scraped": today.isoformat(),
         "price_eur": price,
         "price_available": price is not None,
         "nct_months_remaining": nct_months_remaining(attrs.get("NCTExpiry"), today),
     }
-    return car, listing
 
 
 def out_of_scope(ad, attrs):
@@ -235,10 +243,24 @@ def read_keys(path, key_columns):
         return {tuple(row[c] for c in key_columns) for row in csv.DictReader(f)}
 
 
+def read_ids(path):
+    """The ad IDs in a text file with one ID per line."""
+    if not path.exists():
+        return set()
+    return set(path.read_text(encoding="utf-8").split())
+
+
+def append_id(path, ad_id):
+    """Add one ad ID to a text file with one ID per line."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(f"{ad_id}\n")
+
+
 def append_row(path, columns, row):
-    """Append one row, writing the header first if the file is new.
+    """Append one row, writing the header first if the file is new or empty.
     utf-8-sig adds a BOM so Excel shows characters like '€' correctly."""
-    is_new = not path.exists()
+    is_new = not path.exists() or path.stat().st_size == 0
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "a", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=columns)
@@ -258,13 +280,14 @@ def read_urls(source):
     return [line.strip() for line in lines if line.strip() and not line.startswith("#")]
 
 
-def search_urls(make, model, count):
+def search_urls(make, model, count, done):
     """
     The ad URLs of the first `count` results of a DoneDeal search, e.g.
-    donedeal.ie/cars/Volkswagen/Golf. Each results page holds 30 ads in the
-    same __NEXT_DATA__ JSON as an ad page (props.pageProps.ads); '?start=30'
-    gives the next page. Promoted 'spotlight' ads are left out because they
-    repeat on every page.
+    donedeal.ie/cars/Volkswagen/Golf, leaving out ads whose ID is in `done`
+    (already scraped), so each run gets new cars. Each results page holds 30
+    ads in the same __NEXT_DATA__ JSON as an ad page (props.pageProps.ads);
+    '?start=30' gives the next page. Promoted 'spotlight' ads are left out
+    because they repeat on every page.
     """
     base = f"https://www.donedeal.ie/cars/{quote(make)}/{quote(model)}"
     urls, start = [], 0
@@ -279,9 +302,11 @@ def search_urls(make, model, count):
             break                           # no (more) results
         for ad in ads:
             url = ad["friendlyUrl"].split("?")[0]
-            if url not in urls:
+            if url not in urls and ad_id_from_url(url) not in done:
                 urls.append(url)
         paging = page.get("paging") or {}
+        print(f"Search page {paging.get('currentPage', '?')}/"
+              f"{paging.get('totalPages', '?')}: {len(urls)} new ads so far")
         if paging.get("currentPage", 0) >= paging.get("totalPages", 0):
             break                           # that was the last page
         start = paging["nextFrom"]
@@ -296,56 +321,64 @@ def main():
     parser.add_argument("--make", help="search mode: car make, e.g. Volkswagen")
     parser.add_argument("--model", help="search mode: car model, e.g. Golf")
     parser.add_argument("--count", type=int, default=30,
-                        help="search mode: how many ads to scrape (default 30)")
+                        help="search mode: how many new ads to scrape (default 30)")
     args = parser.parse_args()
     if bool(args.source) == bool(args.make and args.model):
         parser.error("give either an ad URL / URL file, or --make and --model")
+
+    # Ads scraped on an earlier run, or found out of scope: never fetched again.
+    done = {key[0] for key in read_keys(CAR_DATA_CSV, ["ad_id"])} | read_ids(SKIPPED_TXT)
 
     load_robots()
     if args.source:
         urls = read_urls(args.source)
     else:
-        urls = search_urls(args.make, args.model, args.count)
-        print(f"Search found {len(urls)} {args.make} {args.model} ads.\n")
+        try:
+            urls = search_urls(args.make, args.model, args.count, done)
+        except Blocked as exc:
+            sys.exit(f"\nBLOCKED on search page {exc}\n{BLOCKED_ADVICE}")
+        print(f"Search found {len(urls)} new {args.make} {args.model} ads.\n")
         if not urls:
-            sys.exit("No results - check the make and model spelling on donedeal.ie.")
+            sys.exit("No new results - check the make and model spelling on "
+                     "donedeal.ie, or every ad has already been scraped.")
 
     today = date.today()
-    known_cars = {key[0] for key in read_keys(CARS_CSV, ["ad_id"])}
-    known_listings = read_keys(LISTINGS_CSV, ["ad_id", "date_scraped"])
-    new_cars = new_listings = failures = 0
+    new_cars = failures = 0
+    blocked = False
 
     for i, url in enumerate(urls, 1):
         prefix = f"[{i}/{len(urls)}]"
-        # Already recorded today? Then don't download it again.
-        if (ad_id_from_url(url), today.isoformat()) in known_listings:
-            print(f"{prefix} DONE     {url}: already scraped today")
+        if ad_id_from_url(url) in done:
+            print(f"{prefix} DONE     {url}: already scraped")
             continue
         try:
             ad, attrs = extract(fetch(url))
             reason = out_of_scope(ad, attrs)
             if reason:
                 print(f"{prefix} SKIPPED  {url}: {reason}")
+                append_id(SKIPPED_TXT, ad_id_from_url(url))
+                done.add(ad_id_from_url(url))
                 continue
-            car, listing = build_rows(ad, attrs, url, today)
-
-            if car["ad_id"] not in known_cars:
-                append_row(CARS_CSV, CARS_COLUMNS, car)
-                known_cars.add(car["ad_id"])
-                new_cars += 1
-            key = (listing["ad_id"], listing["date_scraped"])
-            if key not in known_listings:
-                append_row(LISTINGS_CSV, LISTINGS_COLUMNS, listing)
-                known_listings.add(key)
-                new_listings += 1
+            car = build_row(ad, attrs, url, today)
+            if car["ad_id"] in done:     # URL had no ID, but the ad is known
+                print(f"{prefix} DONE     {url}: already scraped")
+                continue
+            append_row(CAR_DATA_CSV, COLUMNS, car)
+            done.add(car["ad_id"])
+            new_cars += 1
             print(f"{prefix} OK       {car['ad_id']}: {car['make']} {car['model']}, "
-                  f"€{listing['price_eur']}")
+                  f"€{car['price_eur']}")
+        except Blocked:              # ...except DoneDeal blocking us: stop now
+            blocked = True
+            print(f"{prefix} BLOCKED  {url}")
+            break
         except Exception as exc:     # one bad ad must never stop the whole run
             failures += 1
             print(f"{prefix} FAILED   {url}: {exc}")
 
-    print(f"\nDone: {new_cars} new cars, {new_listings} listings appended, "
-          f"{failures} failed.")
+    print(f"\nDone: {new_cars} new cars added, {failures} failed.")
+    if blocked:
+        sys.exit(f"Stopped early at ad {i}/{len(urls)}.\n{BLOCKED_ADVICE}")
 
 
 if __name__ == "__main__":
