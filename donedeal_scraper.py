@@ -50,9 +50,8 @@ BLOCKED_ADVICE = ("DoneDeal refused the request (HTTP 403): it has probably "
 
 COLUMNS = [
     "ad_id", "url", "make", "model", "trim", "year", "mileage_km", "fuel_type",
-    "engine_size_litres", "engine_power_hp", "transmission", "body_type",
-    "num_doors", "previous_owners", "is_import", "seller_type", "county",
-    "warranty", "road_tax_eur", "safety_rating",
+    "engine_size_litres", "transmission", "body_type",
+    "previous_owners", "is_import", "seller_type", "county", "warranty",
     "date_scraped", "price_eur", "price_available", "nct_months_remaining",
 ]
 
@@ -152,7 +151,7 @@ def number(value):
 
 
 def integer(value):
-    """'150 hp' -> 150, '5/5' -> 5."""
+    """'2019' -> 2019, '63,000 km' -> 63000."""
     n = number(value)
     return int(n) if n is not None else None
 
@@ -204,18 +203,14 @@ def build_row(ad, attrs, url, today):
         "mileage_km": integer(attrs.get("mileage")),
         "fuel_type": fuel_type(attrs.get("fuelType")),
         "engine_size_litres": number(attrs.get("engine")),
-        "engine_power_hp": integer(attrs.get("enginePower")),
         "transmission": text(attrs.get("transmission")),
         "body_type": text(attrs.get("bodyType")),
-        "num_doors": integer(attrs.get("numDoors")),
         "previous_owners": integer(attrs.get("owners")),
         "is_import": is_import(attrs.get("country"),
                                attrs.get("countryOfPreviousRegistration")),
         "seller_type": {"PRO": "Dealer", "PRIVATE": "Private"}.get(ad.get("sellerType")),
         "county": text(ad.get("county")),
         "warranty": any(m.get("field") == "warranty" for m in ad.get("meritsV2") or []),
-        "road_tax_eur": integer(attrs.get("roadTax")),
-        "safety_rating": integer(attrs.get("safetyRating")),
         "date_scraped": today.isoformat(),
         "price_eur": price,
         "price_available": price is not None,

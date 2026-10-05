@@ -65,16 +65,13 @@ vehicle details and the price on the day it was scraped
 | mileage_km | integer km |
 | fuel_type | Petrol, Diesel, Hybrid, Plug-in Hybrid, Other |
 | engine_size_litres | e.g. 1.6 |
-| engine_power_hp | integer |
 | transmission | Manual / Automatic |
 | body_type | as listed by DoneDeal (Hatchback, Saloon, Estate, MPV, ...) |
-| num_doors, previous_owners | integers |
+| previous_owners | integer |
 | is_import | True if registered or previously registered outside Ireland |
 | seller_type | Dealer / Private |
 | county | e.g. Limerick |
 | warranty | True / False |
-| road_tax_eur | annual road tax |
-| safety_rating | Euro NCAP stars (0-5) |
 | date_scraped | date the ad was scraped |
 | price_eur | asking price in euro (empty if not given) |
 | price_available | False if the price is missing or on request |
@@ -90,8 +87,7 @@ Missing values are left empty.
    and downloads the page with a browser User-Agent.
 2. **Extracting**: reads the ad's data from the page's embedded
    `<script id="__NEXT_DATA__">` JSON (under `props.pageProps`).
-3. **Cleaning**: converts text to numbers ("63,000 km" to 63000, "1.2 L" to 1.2,
-   "150 hp" to 150), standardises fuel and seller type, calculates NCT months
+3. **Cleaning**: converts text to numbers ("63,000 km" to 63000, "1.2 L" to 1.2), standardises fuel and seller type, calculates NCT months
    and import status.
 4. **Storing**: appends one row to `carData.csv` for every new ad. Ads
    whose `ad_id` is already in `carData.csv` or `skipped_ads.txt` are never fetched.

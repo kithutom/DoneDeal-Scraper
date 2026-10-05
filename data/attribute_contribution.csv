@@ -1,0 +1,20 @@
+rank_least_to_most,attribute_differs,attribute_type,pairs,p_large_gap,lift,median_price_gap,pricier_car_is_better_pct,better_value_tested,note
+1,Fuel (petrol vs hybrid only),spec,12,0.00,0.00,0.045,,,Too few pairs to conclude; no petrol vs diesel pairs with otherwise identical specs
+2,Road tax,condition,142,0.26,0.66,0.083,0.53,Lower road tax,No consistent effect on price
+3,Safety rating listed,condition,79,0.24,0.93,0.075,0.29,Rating listed,All listed ratings are 5; only shows whether the field was filled in
+4,Horsepower (same trim and year),spec,296,0.26,1.02,0.076,0.42,Higher hp,Likely listing noise within the same trim
+5,Doors,condition,152,0.27,1.05,0.072,0.35,More doors,3-door vs 5-door makes no real difference
+6,Mileage 10-25% apart (vs <10%),condition,335,0.23,1.48,0.067,0.62,Lower mileage,
+7,Mileage 25-50% apart (vs <10%),condition,503,0.23,1.48,0.079,0.73,Lower mileage,Direction figure covers all pairs >=25% apart
+8,Engine size,spec,28,0.39,1.53,0.093,,,
+9,Body type,spec,381,0.39,1.53,0.118,,,Hatchback vs Estate
+10,Import status,condition,49,0.59,1.72,0.167,0.73,Irish (not import),
+11,Previous owners (>=2 apart),condition,132,0.47,1.77,0.127,0.73,Fewer owners,
+12,Trim,spec,637,0.47,1.84,0.134,,,
+13,Transmission,spec,211,0.50,1.95,0.151,0.80,Automatic,
+14,NCT (>=6 months apart),condition,337,0.42,1.95,0.124,0.64,More NCT months,
+15,County,condition,988,0.31,2.33,0.095,0.28,In Dublin,Lift inflated: same-county pairs are unusually close in price; P(large) near 0.26 baseline so a weak factor
+16,Warranty,condition,385,0.44,2.33,0.116,0.72,Has warranty,
+17,Mileage >50% apart (vs <10%),condition,367,0.37,2.37,0.104,0.73,Lower mileage,Direction figure covers all pairs >=25% apart
+18,Year,spec,3961,0.67,2.60,0.228,0.91,Newer year,
+19,Seller type,condition,244,0.58,3.04,0.180,0.80,Dealer,
