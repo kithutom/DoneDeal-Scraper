@@ -1,0 +1,1143 @@
+﻿ad_id,column,old_value,new_value,method,reason
+43084650,price_eur,1.0,6950,fill in manually,"title and description: ""Price EUR 6950"""
+43002198,price_eur,1.0,6500,fill in manually,"title and description: ""EUR 6500"""
+42948849,price_eur,1234.0,2450,fill in manually,"title and description: ""EUR 2450"""
+43089196,price_eur,1234.0,24500,fill in manually,"description: ""Price is EUR 24500"""
+43088254,price_eur,145.0,1199,fill in manually,"title and description: ""EUR 1,199 ONO"""
+43062218,mileage_km,,26085,fill in manually,"mileage field now filled in on the ad: 26,085 km"
+43079155,mileage_km,,164450,fill in manually,"mileage field now filled in on the ad: 164,450 km"
+43033339,mileage_km,,188000,fill in manually,"description: ""188kmh"" (188k km)"
+42868060,mileage_km,,354056,fill in manually,"description: ""220miles"" (220k miles)"
+43084676,mileage_km,,76000,fill in manually,"description: ""76K Kms total mileage"""
+43084676,transmission,Manual,Automatic,fill in manually,"title and description: ""Automatic Transmission"""
+42788971,mileage_km,,160000,fill in manually,"description: ""160,000kms"""
+42997097,mileage_km,,141289,fill in manually,"description: ""141,289 km"""
+42997097,transmission,,Manual,fill in manually,"description: ""Manual"""
+43092546,mileage_km,,317041,fill in manually,"description: ""197,000 miles"""
+43018623,mileage_km,259.0,259000,fill in manually,"listed 259 km; description: ""161k miles"" = 259k km"
+43065639,mileage_km,204.0,204000,fill in manually,"listed 204 km; description: ""204,000 km"""
+43058095,mileage_km,193.0,193000,fill in manually,"listed 193 km; description: ""120 miles"" (120k miles = 193k km)"
+43077895,mileage_km,140.0,140000,fill in manually,"listed 140 km; description: ""140 kms"" on a 2018 car"
+43077085,mileage_km,238.0,238000,fill in manually,"listed 238 km; description: ""238KM mileage"" on a 2012 car"
+42920636,mileage_km,312.0,312000,fill in manually,"listed 312 km; description: ""312k"""
+42960767,mileage_km,370.0,370000,fill in manually,"listed 370 km; description: ""230k miles"" = 370k km"
+42991343,mileage_km,275.0,275000,fill in manually,"listed 275 km; description: ""275km"" on a 2017 car"
+42981125,mileage_km,320.0,320000,fill in manually,"listed 320 km; description: ""320km on clock"", serviced every 15,000k"
+43089017,mileage_km,187.0,187000,fill in manually,"listed 187 km; description gives services at ""133km"", ""169km"" (thousands)"
+43074940,mileage_km,24500.0,61153,fill in manually,"listed 24,500 km (= the price); title and description: ""61,153km"""
+40548574,engine_size_litres,,2.0,fill in manually,"title: ""19 VW GOLF 2.0 TDI DSG"""
+42875516,transmission,,Automatic,fill in manually,"transmission field now filled in on the ad; description: ""DSG"""
+42806844,transmission,,Manual,fill in manually,"description: ""6 speed manual"""
+41949759,(whole tuple),,,ignore the tuple,"price EUR 123,456 is a placeholder; description says POA"
+42955133,(whole tuple),,,ignore the tuple,"price EUR 1,234 is a placeholder; no price in the description"
+43089557,(whole tuple),,,ignore the tuple,"price EUR 1 is a placeholder; car is for breaking, no price given"
+43025613,(whole tuple),,,ignore the tuple,"price EUR 12,345,678 is a placeholder; no price in the description"
+42987464,(whole tuple),,,ignore the tuple,"ad is for a VW Passat, not a Golf"
+42971764,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+42708691,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+32749557,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+43086990,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+43048715,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+42726026,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+43076494,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+43076493,(whole tuple),,,ignore the tuple,mileage missing and not in the description
+42091193,(whole tuple),,,ignore the tuple,"mileage 1,234 km is a placeholder; not in the description"
+43007309,(whole tuple),,,ignore the tuple,mileage 200 km is fake on a 2014 car; not in the description
+42985482,(whole tuple),,,ignore the tuple,mileage 200 km is fake on a 2011 car; not in the description
+43090330,(whole tuple),,,ignore the tuple,mileage 224 km is fake on a 2009 car; not in the description
+41762506,(whole tuple),,,ignore the tuple,mileage 175 km is fake on a 2016 car; not in the description
+43062952,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43062184,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43064301,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43063645,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43063642,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+42725864,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43077901,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43077554,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43077552,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43076546,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43076898,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+42247534,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+39173613,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43083940,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43019724,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43082500,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43054816,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+42871372,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43093985,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43091933,(whole tuple),,,ignore the tuple,no price given (POA / price on request)
+43038671,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42850000,trim,EDITION-R,Edition-R,standardise spelling,same trim written in a different case
+43043652,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42972171,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43062927,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42998281,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42393745,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43062254,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42354005,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43020950,trim,MATCH,Match,standardise spelling,same trim written in a different case
+42955306,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43041690,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43032873,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42929281,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42893782,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42882836,trim,EDITION-R,Edition-R,standardise spelling,same trim written in a different case
+42517350,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42954879,trim,EDITION-R,Edition-R,standardise spelling,same trim written in a different case
+43020512,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43065050,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42793106,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42869914,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43064412,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43036696,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43057457,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43064284,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43064241,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42928126,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43003524,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43019338,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42935249,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43028195,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42923401,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42898283,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42560092,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42530980,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42380615,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42927441,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43061877,trim,MATCH,Match,standardise spelling,same trim written in a different case
+42656616,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43079155,trim,MATCH,Match,standardise spelling,same trim written in a different case
+43007634,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42988468,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42754543,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43078647,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43013726,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42534729,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43078405,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42897093,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43078301,trim,EDITION-R,Edition-R,standardise spelling,same trim written in a different case
+43013210,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42970419,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43078077,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42957362,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42864790,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43057261,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42630991,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+42502138,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42612192,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43077298,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42994532,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43077085,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42920636,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43055804,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43076382,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43031428,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42735907,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43075889,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43027232,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42975399,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42964674,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43075427,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+41909705,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43075064,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43074921,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43074594,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42799585,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42961409,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43074171,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42917828,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42540645,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43073944,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+42179841,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42902757,trim,GTI CLUBSPORT,GTI Clubsport,standardise spelling,same trim written in a different case
+42639509,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42964210,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42990239,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42950424,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43053504,trim,MATCH,Match,standardise spelling,same trim written in a different case
+43052109,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43084622,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42844455,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42994742,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42994751,trim,MATCH,Match,standardise spelling,same trim written in a different case
+42998894,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42959383,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43039488,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43084126,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42844454,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43084102,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43039436,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42948849,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42606042,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43083728,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43083630,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42868060,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42960767,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43083383,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42993492,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43083129,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43038524,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+41776407,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43082822,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43037918,trim,MATCH,Match,standardise spelling,same trim written in a different case
+43082124,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42652540,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42630930,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42613385,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42613372,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42556115,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42476077,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42476075,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42424218,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42407374,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42387383,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42311441,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43032776,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42948865,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42874281,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42874279,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42862900,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42668268,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42613386,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42613384,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42613378,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42023143,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42329536,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42422555,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42199174,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42184593,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42184591,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42249703,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42242625,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42101175,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+41648734,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+41141386,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+40988821,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+40930052,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+40837097,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42995395,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42991660,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43084722,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43084676,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42706657,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43081280,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42582862,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42990878,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43036362,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43080876,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+39367642,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43061411,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43002198,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42740153,trim,GTI CLUBSPORT,GTI Clubsport,standardise spelling,same trim written in a different case
+42747907,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42788147,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42747908,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42742908,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42723335,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43026200,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43091206,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42873336,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43027144,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43028757,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42742776,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43090500,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43072641,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43090380,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+40224201,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43090275,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+42624013,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43045655,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43045328,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42981125,trim,MATCH,Match,standardise spelling,same trim written in a different case
+42894375,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43089665,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42954636,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42999692,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42972141,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43044608,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43089052,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43088977,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43088901,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43088830,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43088799,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43088761,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42998996,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43088612,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43088563,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43088558,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+42931862,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42848451,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42998765,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43088232,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42998414,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43087900,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43087818,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43087751,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43087726,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43087701,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42952850,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43050844,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+42942622,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42189596,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42803151,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42606461,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43042360,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43041816,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43086240,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42409254,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42608817,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42812390,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+41206866,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43070140,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+43093523,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42840443,trim,GTI CLUBSPORT,GTI Clubsport,standardise spelling,same trim written in a different case
+43093169,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42940527,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43026202,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+42849739,trim,TRENDLINE,Trendline,standardise spelling,same trim written in a different case
+42993686,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43089173,trim,GTI CLUBSPORT,GTI Clubsport,standardise spelling,same trim written in a different case
+43047634,trim,BLUEMOTION,BlueMotion,standardise spelling,same trim written in a different case
+43002782,trim,HIGHLINE,Highline,standardise spelling,same trim written in a different case
+43092000,trim,COMFORTLINE,Comfortline,standardise spelling,same trim written in a different case
+43043877,trim,,Unknown,global constant,trim missing or not a real trim
+43018623,trim,,Unknown,global constant,trim missing or not a real trim
+43063375,trim,,Unknown,global constant,trim missing or not a real trim
+42748586,trim,all,Unknown,global constant,trim missing or not a real trim
+38738497,trim,,Unknown,global constant,trim missing or not a real trim
+42482844,trim,,Unknown,global constant,trim missing or not a real trim
+42487030,trim,,Unknown,global constant,trim missing or not a real trim
+40188922,trim,,Unknown,global constant,trim missing or not a real trim
+42393796,trim,,Unknown,global constant,trim missing or not a real trim
+42025004,trim,all,Unknown,global constant,trim missing or not a real trim
+42392312,trim,,Unknown,global constant,trim missing or not a real trim
+43061934,trim,,Unknown,global constant,trim missing or not a real trim
+37906653,trim,,Unknown,global constant,trim missing or not a real trim
+43065639,trim,,Unknown,global constant,trim missing or not a real trim
+38530843,trim,,Unknown,global constant,trim missing or not a real trim
+42216444,trim,,Unknown,global constant,trim missing or not a real trim
+43019798,trim,,Unknown,global constant,trim missing or not a real trim
+40828265,trim,,Unknown,global constant,trim missing or not a real trim
+42875516,trim,,Unknown,global constant,trim missing or not a real trim
+41965276,trim,all,Unknown,global constant,trim missing or not a real trim
+42797680,trim,,Unknown,global constant,trim missing or not a real trim
+42513895,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+43020309,trim,,Unknown,global constant,trim missing or not a real trim
+42743166,trim,,Unknown,global constant,trim missing or not a real trim
+42636822,trim,,Unknown,global constant,trim missing or not a real trim
+43020252,trim,,Unknown,global constant,trim missing or not a real trim
+42973613,trim,,Unknown,global constant,trim missing or not a real trim
+43064629,trim,,Unknown,global constant,trim missing or not a real trim
+42988873,trim,,Unknown,global constant,trim missing or not a real trim
+43064481,trim,,Unknown,global constant,trim missing or not a real trim
+43064420,trim,,Unknown,global constant,trim missing or not a real trim
+43064119,trim,,Unknown,global constant,trim missing or not a real trim
+43064058,trim,,Unknown,global constant,trim missing or not a real trim
+41148499,trim,,Unknown,global constant,trim missing or not a real trim
+42438531,trim,,Unknown,global constant,trim missing or not a real trim
+37995339,trim,,Unknown,global constant,trim missing or not a real trim
+43049615,trim,,Unknown,global constant,trim missing or not a real trim
+42893762,trim,,Unknown,global constant,trim missing or not a real trim
+43063895,trim,,Unknown,global constant,trim missing or not a real trim
+43003140,trim,,Unknown,global constant,trim missing or not a real trim
+41496975,trim,all,Unknown,global constant,trim missing or not a real trim
+42915372,trim,,Unknown,global constant,trim missing or not a real trim
+42923241,trim,,Unknown,global constant,trim missing or not a real trim
+43058924,trim,,Unknown,global constant,trim missing or not a real trim
+42999157,trim,,Unknown,global constant,trim missing or not a real trim
+43078541,trim,,Unknown,global constant,trim missing or not a real trim
+43063410,trim,all,Unknown,global constant,trim missing or not a real trim
+42897252,trim,,Unknown,global constant,trim missing or not a real trim
+42566180,trim,,Unknown,global constant,trim missing or not a real trim
+41961198,trim,,Unknown,global constant,trim missing or not a real trim
+42800631,trim,,Unknown,global constant,trim missing or not a real trim
+41521449,trim,,Unknown,global constant,trim missing or not a real trim
+42110731,trim,,Unknown,global constant,trim missing or not a real trim
+40548574,trim,all,Unknown,global constant,trim missing or not a real trim
+40692160,trim,all,Unknown,global constant,trim missing or not a real trim
+38718860,trim,,Unknown,global constant,trim missing or not a real trim
+41165324,trim,,Unknown,global constant,trim missing or not a real trim
+43078136,trim,,Unknown,global constant,trim missing or not a real trim
+43078041,trim,,Unknown,global constant,trim missing or not a real trim
+43033339,trim,,Unknown,global constant,trim missing or not a real trim
+42322567,trim,,Unknown,global constant,trim missing or not a real trim
+42824850,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+42853082,trim,,Unknown,global constant,trim missing or not a real trim
+42291911,trim,,Unknown,global constant,trim missing or not a real trim
+42333066,trim,,Unknown,global constant,trim missing or not a real trim
+40920157,trim,,Unknown,global constant,trim missing or not a real trim
+42494003,trim,,Unknown,global constant,trim missing or not a real trim
+42383708,trim,,Unknown,global constant,trim missing or not a real trim
+43077472,trim,,Unknown,global constant,trim missing or not a real trim
+42753649,trim,,Unknown,global constant,trim missing or not a real trim
+42977528,trim,,Unknown,global constant,trim missing or not a real trim
+42747224,trim,,Unknown,global constant,trim missing or not a real trim
+42150295,trim,,Unknown,global constant,trim missing or not a real trim
+42704170,trim,,Unknown,global constant,trim missing or not a real trim
+38576838,trim,,Unknown,global constant,trim missing or not a real trim
+42243412,trim,,Unknown,global constant,trim missing or not a real trim
+41802479,trim,,Unknown,global constant,trim missing or not a real trim
+43027158,trim,,Unknown,global constant,trim missing or not a real trim
+42075368,trim,,Unknown,global constant,trim missing or not a real trim
+42948001,trim,,Unknown,global constant,trim missing or not a real trim
+42895108,trim,,Unknown,global constant,trim missing or not a real trim
+42746338,trim,,Unknown,global constant,trim missing or not a real trim
+43075863,trim,,Unknown,global constant,trim missing or not a real trim
+43075816,trim,all,Unknown,global constant,trim missing or not a real trim
+41375310,trim,,Unknown,global constant,trim missing or not a real trim
+43007073,trim,,Unknown,global constant,trim missing or not a real trim
+43007126,trim,,Unknown,global constant,trim missing or not a real trim
+40130337,trim,,Unknown,global constant,trim missing or not a real trim
+42605460,trim,,Unknown,global constant,trim missing or not a real trim
+42893868,trim,,Unknown,global constant,trim missing or not a real trim
+42756238,trim,all,Unknown,global constant,trim missing or not a real trim
+43030682,trim,,Unknown,global constant,trim missing or not a real trim
+43075267,trim,,Unknown,global constant,trim missing or not a real trim
+43075086,trim,,Unknown,global constant,trim missing or not a real trim
+42963749,trim,,Unknown,global constant,trim missing or not a real trim
+41828205,trim,,Unknown,global constant,trim missing or not a real trim
+43071344,trim,,Unknown,global constant,trim missing or not a real trim
+43074429,trim,,Unknown,global constant,trim missing or not a real trim
+39682473,trim,,Unknown,global constant,trim missing or not a real trim
+40500774,trim,,Unknown,global constant,trim missing or not a real trim
+42936104,trim,,Unknown,global constant,trim missing or not a real trim
+42979102,trim,,Unknown,global constant,trim missing or not a real trim
+42963140,trim,,Unknown,global constant,trim missing or not a real trim
+43054077,trim,,Unknown,global constant,trim missing or not a real trim
+41185999,trim,,Unknown,global constant,trim missing or not a real trim
+43073736,trim,,Unknown,global constant,trim missing or not a real trim
+42938832,trim,,Unknown,global constant,trim missing or not a real trim
+42938694,trim,,Unknown,global constant,trim missing or not a real trim
+42426836,trim,,Unknown,global constant,trim missing or not a real trim
+42784320,trim,,Unknown,global constant,trim missing or not a real trim
+41740823,trim,,Unknown,global constant,trim missing or not a real trim
+37974325,trim,all,Unknown,global constant,trim missing or not a real trim
+42891790,trim,,Unknown,global constant,trim missing or not a real trim
+42305385,trim,all,Unknown,global constant,trim missing or not a real trim
+40873299,trim,,Unknown,global constant,trim missing or not a real trim
+42602000,trim,,Unknown,global constant,trim missing or not a real trim
+42982762,trim,,Unknown,global constant,trim missing or not a real trim
+42840084,trim,,Unknown,global constant,trim missing or not a real trim
+42698026,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+41904262,trim,all,Unknown,global constant,trim missing or not a real trim
+42806844,trim,,Unknown,global constant,trim missing or not a real trim
+42715359,trim,,Unknown,global constant,trim missing or not a real trim
+43084650,trim,,Unknown,global constant,trim missing or not a real trim
+42792453,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+43030044,trim,,Unknown,global constant,trim missing or not a real trim
+43083920,trim,,Unknown,global constant,trim missing or not a real trim
+43083797,trim,,Unknown,global constant,trim missing or not a real trim
+41115031,trim,,Unknown,global constant,trim missing or not a real trim
+40569739,trim,,Unknown,global constant,trim missing or not a real trim
+42912143,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+43083052,trim,,Unknown,global constant,trim missing or not a real trim
+43082928,trim,,Unknown,global constant,trim missing or not a real trim
+42901554,trim,,Unknown,global constant,trim missing or not a real trim
+43082375,trim,,Unknown,global constant,trim missing or not a real trim
+42730467,trim,,Unknown,global constant,trim missing or not a real trim
+41735545,trim,,Unknown,global constant,trim missing or not a real trim
+37468103,trim,,Unknown,global constant,trim missing or not a real trim
+39857414,trim,,Unknown,global constant,trim missing or not a real trim
+37468068,trim,,Unknown,global constant,trim missing or not a real trim
+41497020,trim,all,Unknown,global constant,trim missing or not a real trim
+43037134,trim,,Unknown,global constant,trim missing or not a real trim
+39142847,trim,,Unknown,global constant,trim missing or not a real trim
+42991637,trim,,Unknown,global constant,trim missing or not a real trim
+43054051,trim,,Unknown,global constant,trim missing or not a real trim
+43081395,trim,,Unknown,global constant,trim missing or not a real trim
+43034981,trim,,Unknown,global constant,trim missing or not a real trim
+43084689,trim,,Unknown,global constant,trim missing or not a real trim
+43080995,trim,,Unknown,global constant,trim missing or not a real trim
+43080994,trim,,Unknown,global constant,trim missing or not a real trim
+43080993,trim,,Unknown,global constant,trim missing or not a real trim
+43014466,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+43016440,trim,,Unknown,global constant,trim missing or not a real trim
+42074740,trim,,Unknown,global constant,trim missing or not a real trim
+42990648,trim,,Unknown,global constant,trim missing or not a real trim
+42760126,trim,,Unknown,global constant,trim missing or not a real trim
+43091477,trim,,Unknown,global constant,trim missing or not a real trim
+42801469,trim,,Unknown,global constant,trim missing or not a real trim
+42705284,trim,,Unknown,global constant,trim missing or not a real trim
+42474087,trim,,Unknown,global constant,trim missing or not a real trim
+41900127,trim,all,Unknown,global constant,trim missing or not a real trim
+42290993,trim,all,Unknown,global constant,trim missing or not a real trim
+42607492,trim,,Unknown,global constant,trim missing or not a real trim
+43091208,trim,,Unknown,global constant,trim missing or not a real trim
+38286419,trim,,Unknown,global constant,trim missing or not a real trim
+41551461,trim,,Unknown,global constant,trim missing or not a real trim
+42790293,trim,,Unknown,global constant,trim missing or not a real trim
+43045608,trim,,Unknown,global constant,trim missing or not a real trim
+43089964,trim,,Unknown,global constant,trim missing or not a real trim
+42698025,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+43089920,trim,,Unknown,global constant,trim missing or not a real trim
+42634018,trim,,Unknown,global constant,trim missing or not a real trim
+42094895,trim,,Unknown,global constant,trim missing or not a real trim
+42824225,trim,all,Unknown,global constant,trim missing or not a real trim
+42914618,trim,,Unknown,global constant,trim missing or not a real trim
+42753703,trim,,Unknown,global constant,trim missing or not a real trim
+42466848,trim,,Unknown,global constant,trim missing or not a real trim
+42345039,trim,all,Unknown,global constant,trim missing or not a real trim
+42560086,trim,,Unknown,global constant,trim missing or not a real trim
+42154622,trim,,Unknown,global constant,trim missing or not a real trim
+42999798,trim,,Unknown,global constant,trim missing or not a real trim
+42999720,trim,,Unknown,global constant,trim missing or not a real trim
+41497305,trim,,Unknown,global constant,trim missing or not a real trim
+40751360,trim,,Unknown,global constant,trim missing or not a real trim
+40197160,trim,,Unknown,global constant,trim missing or not a real trim
+39918999,trim,,Unknown,global constant,trim missing or not a real trim
+43089050,trim,,Unknown,global constant,trim missing or not a real trim
+43089017,trim,,Unknown,global constant,trim missing or not a real trim
+38596116,trim,,Unknown,global constant,trim missing or not a real trim
+43088834,trim,all,Unknown,global constant,trim missing or not a real trim
+43021962,trim,,Unknown,global constant,trim missing or not a real trim
+43087340,trim,all,Unknown,global constant,trim missing or not a real trim
+43087430,trim,all,Unknown,global constant,trim missing or not a real trim
+42931848,trim,,Unknown,global constant,trim missing or not a real trim
+43088254,trim,,Unknown,global constant,trim missing or not a real trim
+43043655,trim,,Unknown,global constant,trim missing or not a real trim
+39945828,trim,,Unknown,global constant,trim missing or not a real trim
+42692635,trim,,Unknown,global constant,trim missing or not a real trim
+42315208,trim,,Unknown,global constant,trim missing or not a real trim
+42788971,trim,,Unknown,global constant,trim missing or not a real trim
+42416101,trim,,Unknown,global constant,trim missing or not a real trim
+43066433,trim,,Unknown,global constant,trim missing or not a real trim
+43016865,trim,,Unknown,global constant,trim missing or not a real trim
+43086972,trim,,Unknown,global constant,trim missing or not a real trim
+43086931,trim,,Unknown,global constant,trim missing or not a real trim
+42952202,trim,,Unknown,global constant,trim missing or not a real trim
+42518547,trim,,Unknown,global constant,trim missing or not a real trim
+43086564,trim,,Unknown,global constant,trim missing or not a real trim
+42997097,trim,,Unknown,global constant,trim missing or not a real trim
+41720442,trim,,Unknown,global constant,trim missing or not a real trim
+38495735,trim,,Unknown,global constant,trim missing or not a real trim
+42905166,trim,,Unknown,global constant,trim missing or not a real trim
+43000203,trim,,Unknown,global constant,trim missing or not a real trim
+43093977,trim,,Unknown,global constant,trim missing or not a real trim
+43049651,trim,,Unknown,global constant,trim missing or not a real trim
+43049558,trim,,Unknown,global constant,trim missing or not a real trim
+38085666,trim,,Unknown,global constant,trim missing or not a real trim
+42351202,trim,e-GOLF,Unknown,global constant,trim missing or not a real trim
+43093621,trim,,Unknown,global constant,trim missing or not a real trim
+42936125,trim,,Unknown,global constant,trim missing or not a real trim
+43034382,trim,,Unknown,global constant,trim missing or not a real trim
+42254643,trim,all,Unknown,global constant,trim missing or not a real trim
+41456328,trim,all,Unknown,global constant,trim missing or not a real trim
+42694157,trim,,Unknown,global constant,trim missing or not a real trim
+43092546,trim,,Unknown,global constant,trim missing or not a real trim
+42815832,trim,,Unknown,global constant,trim missing or not a real trim
+42988851,trim,,Unknown,global constant,trim missing or not a real trim
+42054111,trim,,Unknown,global constant,trim missing or not a real trim
+41115680,is_import,,Unknown,global constant,import status not listed
+38738497,is_import,,Unknown,global constant,import status not listed
+42388749,is_import,,Unknown,global constant,import status not listed
+42893114,is_import,,Unknown,global constant,import status not listed
+41914580,is_import,,Unknown,global constant,import status not listed
+37906653,is_import,,Unknown,global constant,import status not listed
+42735880,is_import,,Unknown,global constant,import status not listed
+38530843,is_import,,Unknown,global constant,import status not listed
+40828265,is_import,,Unknown,global constant,import status not listed
+42708243,is_import,,Unknown,global constant,import status not listed
+42208231,is_import,,Unknown,global constant,import status not listed
+43039322,is_import,,Unknown,global constant,import status not listed
+42207800,is_import,,Unknown,global constant,import status not listed
+42823062,is_import,,Unknown,global constant,import status not listed
+43037518,is_import,,Unknown,global constant,import status not listed
+42495680,is_import,,Unknown,global constant,import status not listed
+42995484,is_import,,Unknown,global constant,import status not listed
+42988873,is_import,,Unknown,global constant,import status not listed
+43034632,is_import,,Unknown,global constant,import status not listed
+42735876,is_import,,Unknown,global constant,import status not listed
+43064477,is_import,,Unknown,global constant,import status not listed
+43064470,is_import,,Unknown,global constant,import status not listed
+43064436,is_import,,Unknown,global constant,import status not listed
+43064284,is_import,,Unknown,global constant,import status not listed
+43064278,is_import,,Unknown,global constant,import status not listed
+43064277,is_import,,Unknown,global constant,import status not listed
+43064272,is_import,,Unknown,global constant,import status not listed
+43064266,is_import,,Unknown,global constant,import status not listed
+43064263,is_import,,Unknown,global constant,import status not listed
+43064257,is_import,,Unknown,global constant,import status not listed
+43064255,is_import,,Unknown,global constant,import status not listed
+43064241,is_import,,Unknown,global constant,import status not listed
+42855700,is_import,,Unknown,global constant,import status not listed
+42438531,is_import,,Unknown,global constant,import status not listed
+37995339,is_import,,Unknown,global constant,import status not listed
+43063981,is_import,,Unknown,global constant,import status not listed
+42133266,is_import,,Unknown,global constant,import status not listed
+42942672,is_import,,Unknown,global constant,import status not listed
+42343831,is_import,,Unknown,global constant,import status not listed
+43028195,is_import,,Unknown,global constant,import status not listed
+43028193,is_import,,Unknown,global constant,import status not listed
+43028192,is_import,,Unknown,global constant,import status not listed
+42923401,is_import,,Unknown,global constant,import status not listed
+42898283,is_import,,Unknown,global constant,import status not listed
+42560092,is_import,,Unknown,global constant,import status not listed
+42530980,is_import,,Unknown,global constant,import status not listed
+42380615,is_import,,Unknown,global constant,import status not listed
+43079294,is_import,,Unknown,global constant,import status not listed
+43079277,is_import,,Unknown,global constant,import status not listed
+42874159,is_import,,Unknown,global constant,import status not listed
+42422388,is_import,,Unknown,global constant,import status not listed
+42416085,is_import,,Unknown,global constant,import status not listed
+42977915,is_import,,Unknown,global constant,import status not listed
+42868838,is_import,,Unknown,global constant,import status not listed
+42970419,is_import,,Unknown,global constant,import status not listed
+41521449,is_import,,Unknown,global constant,import status not listed
+38718860,is_import,,Unknown,global constant,import status not listed
+41165324,is_import,,Unknown,global constant,import status not listed
+42243619,is_import,,Unknown,global constant,import status not listed
+42459928,is_import,,Unknown,global constant,import status not listed
+42957860,is_import,,Unknown,global constant,import status not listed
+42948695,is_import,,Unknown,global constant,import status not listed
+40920157,is_import,,Unknown,global constant,import status not listed
+43077571,is_import,,Unknown,global constant,import status not listed
+42630991,is_import,,Unknown,global constant,import status not listed
+42704170,is_import,,Unknown,global constant,import status not listed
+42392112,is_import,,Unknown,global constant,import status not listed
+43021551,is_import,,Unknown,global constant,import status not listed
+42900275,is_import,,Unknown,global constant,import status not listed
+42844453,is_import,,Unknown,global constant,import status not listed
+42609098,is_import,,Unknown,global constant,import status not listed
+42609097,is_import,,Unknown,global constant,import status not listed
+42820112,is_import,,Unknown,global constant,import status not listed
+42735907,is_import,,Unknown,global constant,import status not listed
+43005315,is_import,,Unknown,global constant,import status not listed
+43005314,is_import,,Unknown,global constant,import status not listed
+42587095,is_import,,Unknown,global constant,import status not listed
+42590773,is_import,,Unknown,global constant,import status not listed
+42587097,is_import,,Unknown,global constant,import status not listed
+42590771,is_import,,Unknown,global constant,import status not listed
+42855608,is_import,,Unknown,global constant,import status not listed
+42313496,is_import,,Unknown,global constant,import status not listed
+42417411,is_import,,Unknown,global constant,import status not listed
+42348882,is_import,,Unknown,global constant,import status not listed
+41909705,is_import,,Unknown,global constant,import status not listed
+41842030,is_import,,Unknown,global constant,import status not listed
+43075086,is_import,,Unknown,global constant,import status not listed
+43075084,is_import,,Unknown,global constant,import status not listed
+42963749,is_import,,Unknown,global constant,import status not listed
+42345046,is_import,,Unknown,global constant,import status not listed
+42156321,is_import,,Unknown,global constant,import status not listed
+42741472,is_import,,Unknown,global constant,import status not listed
+42741471,is_import,,Unknown,global constant,import status not listed
+41857145,is_import,,Unknown,global constant,import status not listed
+42313497,is_import,,Unknown,global constant,import status not listed
+42799585,is_import,,Unknown,global constant,import status not listed
+43074429,is_import,,Unknown,global constant,import status not listed
+42735889,is_import,,Unknown,global constant,import status not listed
+39682473,is_import,,Unknown,global constant,import status not listed
+43023763,is_import,,Unknown,global constant,import status not listed
+42459925,is_import,,Unknown,global constant,import status not listed
+42464617,is_import,,Unknown,global constant,import status not listed
+41740823,is_import,,Unknown,global constant,import status not listed
+42840084,is_import,,Unknown,global constant,import status not listed
+42417407,is_import,,Unknown,global constant,import status not listed
+42685756,is_import,,Unknown,global constant,import status not listed
+42844455,is_import,,Unknown,global constant,import status not listed
+42551126,is_import,,Unknown,global constant,import status not listed
+42545901,is_import,,Unknown,global constant,import status not listed
+42844454,is_import,,Unknown,global constant,import status not listed
+41115031,is_import,,Unknown,global constant,import status not listed
+40569739,is_import,,Unknown,global constant,import status not listed
+42543820,is_import,,Unknown,global constant,import status not listed
+42543815,is_import,,Unknown,global constant,import status not listed
+42888989,is_import,,Unknown,global constant,import status not listed
+42495175,is_import,,Unknown,global constant,import status not listed
+42844451,is_import,,Unknown,global constant,import status not listed
+42933098,is_import,,Unknown,global constant,import status not listed
+42518423,is_import,,Unknown,global constant,import status not listed
+42513635,is_import,,Unknown,global constant,import status not listed
+42640968,is_import,,Unknown,global constant,import status not listed
+42652540,is_import,,Unknown,global constant,import status not listed
+42630930,is_import,,Unknown,global constant,import status not listed
+42556120,is_import,,Unknown,global constant,import status not listed
+42613385,is_import,,Unknown,global constant,import status not listed
+42613372,is_import,,Unknown,global constant,import status not listed
+42556115,is_import,,Unknown,global constant,import status not listed
+42476077,is_import,,Unknown,global constant,import status not listed
+42513800,is_import,,Unknown,global constant,import status not listed
+42433239,is_import,,Unknown,global constant,import status not listed
+42476075,is_import,,Unknown,global constant,import status not listed
+42424218,is_import,,Unknown,global constant,import status not listed
+42407374,is_import,,Unknown,global constant,import status not listed
+42387383,is_import,,Unknown,global constant,import status not listed
+42311441,is_import,,Unknown,global constant,import status not listed
+37468103,is_import,,Unknown,global constant,import status not listed
+43032776,is_import,,Unknown,global constant,import status not listed
+43030025,is_import,,Unknown,global constant,import status not listed
+43032777,is_import,,Unknown,global constant,import status not listed
+42986876,is_import,,Unknown,global constant,import status not listed
+42948866,is_import,,Unknown,global constant,import status not listed
+42986874,is_import,,Unknown,global constant,import status not listed
+42944386,is_import,,Unknown,global constant,import status not listed
+42948865,is_import,,Unknown,global constant,import status not listed
+42874281,is_import,,Unknown,global constant,import status not listed
+42874279,is_import,,Unknown,global constant,import status not listed
+42862902,is_import,,Unknown,global constant,import status not listed
+42862900,is_import,,Unknown,global constant,import status not listed
+42844615,is_import,,Unknown,global constant,import status not listed
+42249713,is_import,,Unknown,global constant,import status not listed
+42804513,is_import,,Unknown,global constant,import status not listed
+42702745,is_import,,Unknown,global constant,import status not listed
+42668268,is_import,,Unknown,global constant,import status not listed
+42613386,is_import,,Unknown,global constant,import status not listed
+42613384,is_import,,Unknown,global constant,import status not listed
+42613378,is_import,,Unknown,global constant,import status not listed
+42023143,is_import,,Unknown,global constant,import status not listed
+39567356,is_import,,Unknown,global constant,import status not listed
+42707870,is_import,,Unknown,global constant,import status not listed
+42594298,is_import,,Unknown,global constant,import status not listed
+42329536,is_import,,Unknown,global constant,import status not listed
+42422555,is_import,,Unknown,global constant,import status not listed
+42264014,is_import,,Unknown,global constant,import status not listed
+42311440,is_import,,Unknown,global constant,import status not listed
+42264013,is_import,,Unknown,global constant,import status not listed
+42280878,is_import,,Unknown,global constant,import status not listed
+42249710,is_import,,Unknown,global constant,import status not listed
+42244682,is_import,,Unknown,global constant,import status not listed
+42199174,is_import,,Unknown,global constant,import status not listed
+42184593,is_import,,Unknown,global constant,import status not listed
+42296710,is_import,,Unknown,global constant,import status not listed
+42184591,is_import,,Unknown,global constant,import status not listed
+42249703,is_import,,Unknown,global constant,import status not listed
+42242625,is_import,,Unknown,global constant,import status not listed
+42101175,is_import,,Unknown,global constant,import status not listed
+41902956,is_import,,Unknown,global constant,import status not listed
+41648734,is_import,,Unknown,global constant,import status not listed
+41490100,is_import,,Unknown,global constant,import status not listed
+41279456,is_import,,Unknown,global constant,import status not listed
+41141386,is_import,,Unknown,global constant,import status not listed
+40988821,is_import,,Unknown,global constant,import status not listed
+40930052,is_import,,Unknown,global constant,import status not listed
+40837097,is_import,,Unknown,global constant,import status not listed
+39857414,is_import,,Unknown,global constant,import status not listed
+37468068,is_import,,Unknown,global constant,import status not listed
+42668278,is_import,,Unknown,global constant,import status not listed
+39142847,is_import,,Unknown,global constant,import status not listed
+42527079,is_import,,Unknown,global constant,import status not listed
+43077577,is_import,,Unknown,global constant,import status not listed
+43080995,is_import,,Unknown,global constant,import status not listed
+43080994,is_import,,Unknown,global constant,import status not listed
+43080993,is_import,,Unknown,global constant,import status not listed
+42721428,is_import,,Unknown,global constant,import status not listed
+42657667,is_import,,Unknown,global constant,import status not listed
+42657661,is_import,,Unknown,global constant,import status not listed
+42198980,is_import,,Unknown,global constant,import status not listed
+42846228,is_import,,Unknown,global constant,import status not listed
+42816028,is_import,,Unknown,global constant,import status not listed
+42896301,is_import,,Unknown,global constant,import status not listed
+42685768,is_import,,Unknown,global constant,import status not listed
+42332635,is_import,,Unknown,global constant,import status not listed
+42061605,is_import,,Unknown,global constant,import status not listed
+42747911,is_import,,Unknown,global constant,import status not listed
+42332634,is_import,,Unknown,global constant,import status not listed
+42303202,is_import,,Unknown,global constant,import status not listed
+42747907,is_import,,Unknown,global constant,import status not listed
+42682268,is_import,,Unknown,global constant,import status not listed
+42788147,is_import,,Unknown,global constant,import status not listed
+42747908,is_import,,Unknown,global constant,import status not listed
+42742908,is_import,,Unknown,global constant,import status not listed
+42723335,is_import,,Unknown,global constant,import status not listed
+43026200,is_import,,Unknown,global constant,import status not listed
+43026195,is_import,,Unknown,global constant,import status not listed
+43053113,is_import,,Unknown,global constant,import status not listed
+43053111,is_import,,Unknown,global constant,import status not listed
+42707875,is_import,,Unknown,global constant,import status not listed
+42640999,is_import,,Unknown,global constant,import status not listed
+38286419,is_import,,Unknown,global constant,import status not listed
+42780823,is_import,,Unknown,global constant,import status not listed
+42689935,is_import,,Unknown,global constant,import status not listed
+42645178,is_import,,Unknown,global constant,import status not listed
+42790293,is_import,,Unknown,global constant,import status not listed
+42385310,is_import,,Unknown,global constant,import status not listed
+42461883,is_import,,Unknown,global constant,import status not listed
+42609170,is_import,,Unknown,global constant,import status not listed
+42288235,is_import,,Unknown,global constant,import status not listed
+42914618,is_import,,Unknown,global constant,import status not listed
+42648191,is_import,,Unknown,global constant,import status not listed
+42693218,is_import,,Unknown,global constant,import status not listed
+41497305,is_import,,Unknown,global constant,import status not listed
+40751360,is_import,,Unknown,global constant,import status not listed
+40197160,is_import,,Unknown,global constant,import status not listed
+42935592,is_import,,Unknown,global constant,import status not listed
+42452424,is_import,,Unknown,global constant,import status not listed
+42551094,is_import,,Unknown,global constant,import status not listed
+42551093,is_import,,Unknown,global constant,import status not listed
+38596116,is_import,,Unknown,global constant,import status not listed
+42551092,is_import,,Unknown,global constant,import status not listed
+42902795,is_import,,Unknown,global constant,import status not listed
+42926446,is_import,,Unknown,global constant,import status not listed
+42121669,is_import,,Unknown,global constant,import status not listed
+42692635,is_import,,Unknown,global constant,import status not listed
+42049795,is_import,,Unknown,global constant,import status not listed
+42935593,is_import,,Unknown,global constant,import status not listed
+41414598,is_import,,Unknown,global constant,import status not listed
+42942622,is_import,,Unknown,global constant,import status not listed
+42240474,is_import,,Unknown,global constant,import status not listed
+42189596,is_import,,Unknown,global constant,import status not listed
+40726355,is_import,,Unknown,global constant,import status not listed
+42609158,is_import,,Unknown,global constant,import status not listed
+43032907,is_import,,Unknown,global constant,import status not listed
+42902803,is_import,,Unknown,global constant,import status not listed
+42461880,is_import,,Unknown,global constant,import status not listed
+41962383,is_import,,Unknown,global constant,import status not listed
+41926465,is_import,,Unknown,global constant,import status not listed
+41926464,is_import,,Unknown,global constant,import status not listed
+38495735,is_import,,Unknown,global constant,import status not listed
+42611336,is_import,,Unknown,global constant,import status not listed
+42825158,is_import,,Unknown,global constant,import status not listed
+42825156,is_import,,Unknown,global constant,import status not listed
+42702782,is_import,,Unknown,global constant,import status not listed
+38085666,is_import,,Unknown,global constant,import status not listed
+43093352,is_import,,Unknown,global constant,import status not listed
+42825153,is_import,,Unknown,global constant,import status not listed
+42825150,is_import,,Unknown,global constant,import status not listed
+41869533,is_import,,Unknown,global constant,import status not listed
+42962291,is_import,,Unknown,global constant,import status not listed
+43026202,is_import,,Unknown,global constant,import status not listed
+41129224,is_import,,Unknown,global constant,import status not listed
+42784691,is_import,,Unknown,global constant,import status not listed
+42482844,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42317586,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42208231,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42207800,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42973613,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+43064629,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42735876,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+43064058,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+37995339,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42133266,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42874159,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42422388,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42416085,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42977915,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+38718860,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+43078136,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42243619,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42392112,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42895108,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42820112,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42348882,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+43075084,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42963749,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+43009564,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+43009563,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+41185999,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42426836,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42602000,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42840084,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42543820,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42543815,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42844451,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42513635,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+41735545,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42527079,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+43091477,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42752446,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+41551461,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42385310,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42288235,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+40751360,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42648816,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42416101,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+41720442,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42825156,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42825153,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+42825150,nct_months_remaining,,N/A,global constant,car under 4 years old: first NCT not due yet
+41115680,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43063375,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+38738497,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42388749,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42395131,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42893114,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+40188922,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42025004,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41914580,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+37906653,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42735880,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42216444,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42588294,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+40828265,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42708243,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42797680,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42823062,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43037518,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42495680,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42995484,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43064477,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43064436,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43064284,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43064241,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42855700,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43063981,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43049615,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42893762,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42343831,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43063592,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43079294,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43079277,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42923241,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42566180,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42970419,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42800631,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41521449,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42943221,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43058095,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42322567,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42062840,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42824850,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42459928,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42004504,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42864790,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42291911,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42333066,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42957860,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42948695,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42494003,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42383708,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43077571,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42630991,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42753649,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42977528,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42747224,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42704170,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41803536,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+38576838,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42980316,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42243412,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42793124,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43026794,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42075368,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43075755,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42764889,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42844453,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42609098,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42609097,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42735907,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43005315,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43005314,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42587095,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42897925,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42924852,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42590773,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42587097,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42590771,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42417411,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43075086,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42345046,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42156321,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42741472,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42741471,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41857145,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42799585,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43074429,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42735889,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+40500774,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42707043,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42325170,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43023763,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41113054,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42459925,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42464617,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41740823,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+40873299,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42417407,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42698026,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42715359,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42844455,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42551126,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42545901,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42792453,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42844454,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42606042,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42396115,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42912143,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42495175,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43083052,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42933098,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43082928,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42518423,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43032776,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42991637,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43077577,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42760126,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42629967,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42801469,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42705284,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42474087,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42771732,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42607811,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42771701,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42771587,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42607787,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42607849,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42896301,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41900127,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42290993,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42332635,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42747911,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42332634,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42303202,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42747907,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42682268,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42788147,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42747908,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42742908,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42723335,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42607492,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43026200,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43026195,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42873362,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42873336,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42873401,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43001582,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42780823,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42689935,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42645178,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42790293,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42698025,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42461883,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42609170,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42914618,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42753703,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42169152,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42648191,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41497305,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42749400,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+40197160,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+39918999,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42551094,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42551093,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42551092,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42878204,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+39945828,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42692635,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42049795,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42788971,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41414598,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42609158,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42606461,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42461880,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+43086390,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42611336,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42825158,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42608817,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42812390,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41869533,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+42815832,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41129224,nct_months_remaining,,Unknown,global constant,NCT due but not listed
+41115680,previous_owners,,2,median by year,previous owners not listed
+38738497,previous_owners,,1,median by year,previous owners not listed
+42388749,previous_owners,,2,median by year,previous owners not listed
+42893114,previous_owners,,1,median by year,previous owners not listed
+41914580,previous_owners,,1,median by year,previous owners not listed
+37906653,previous_owners,,1,median by year,previous owners not listed
+42735880,previous_owners,,2,median by year,previous owners not listed
+40828265,previous_owners,,2,median by year,previous owners not listed
+42708243,previous_owners,,1,median by year,previous owners not listed
+42208231,previous_owners,,1,median by year,previous owners not listed
+42207800,previous_owners,,1,median by year,previous owners not listed
+43037518,previous_owners,,1,median by year,previous owners not listed
+42495680,previous_owners,,1,median by year,previous owners not listed
+42735876,previous_owners,,1,median by year,previous owners not listed
+43064477,previous_owners,,1,median by year,previous owners not listed
+43064436,previous_owners,,1,median by year,previous owners not listed
+42855700,previous_owners,,1,median by year,previous owners not listed
+42438531,previous_owners,,1,median by year,previous owners not listed
+37995339,previous_owners,,1,median by year,previous owners not listed
+43063981,previous_owners,,1,median by year,previous owners not listed
+42133266,previous_owners,,1,median by year,previous owners not listed
+42874159,previous_owners,,1,median by year,previous owners not listed
+42422388,previous_owners,,1,median by year,previous owners not listed
+42416085,previous_owners,,1,median by year,previous owners not listed
+42977915,previous_owners,,1,median by year,previous owners not listed
+42868838,previous_owners,,1,median by year,previous owners not listed
+38718860,previous_owners,,1,median by year,previous owners not listed
+41165324,previous_owners,,1,median by year,previous owners not listed
+42243619,previous_owners,,1,median by year,previous owners not listed
+42957860,previous_owners,,1,median by year,previous owners not listed
+42948695,previous_owners,,1,median by year,previous owners not listed
+40920157,previous_owners,,1,median by year,previous owners not listed
+42392112,previous_owners,,1,median by year,previous owners not listed
+42844453,previous_owners,,1,median by year,previous owners not listed
+42820112,previous_owners,,1,median by year,previous owners not listed
+43005315,previous_owners,,1,median by year,previous owners not listed
+43005314,previous_owners,,1,median by year,previous owners not listed
+42587095,previous_owners,,1,median by year,previous owners not listed
+42590773,previous_owners,,1,median by year,previous owners not listed
+42587097,previous_owners,,1,median by year,previous owners not listed
+42590771,previous_owners,,1,median by year,previous owners not listed
+42348882,previous_owners,,1,median by year,previous owners not listed
+43075086,previous_owners,,1,median by year,previous owners not listed
+43075084,previous_owners,,1,median by year,previous owners not listed
+42963749,previous_owners,,1,median by year,previous owners not listed
+42345046,previous_owners,,1,median by year,previous owners not listed
+42156321,previous_owners,,1,median by year,previous owners not listed
+42741472,previous_owners,,1,median by year,previous owners not listed
+42741471,previous_owners,,1,median by year,previous owners not listed
+41857145,previous_owners,,1,median by year,previous owners not listed
+42735889,previous_owners,,2,median by year,previous owners not listed
+43023763,previous_owners,,1,median by year,previous owners not listed
+42464617,previous_owners,,2,median by year,previous owners not listed
+41740823,previous_owners,,1,median by year,previous owners not listed
+42840084,previous_owners,,1,median by year,previous owners not listed
+42685756,previous_owners,,2,median by year,previous owners not listed
+42844455,previous_owners,,1,median by year,previous owners not listed
+42551126,previous_owners,,1,median by year,previous owners not listed
+42844454,previous_owners,,1,median by year,previous owners not listed
+41115031,previous_owners,,1,median by year,previous owners not listed
+42543820,previous_owners,,1,median by year,previous owners not listed
+42543815,previous_owners,,1,median by year,previous owners not listed
+42888989,previous_owners,,1,median by year,previous owners not listed
+42495175,previous_owners,,1,median by year,previous owners not listed
+42844451,previous_owners,,1,median by year,previous owners not listed
+42933098,previous_owners,,1,median by year,previous owners not listed
+42518423,previous_owners,,1,median by year,previous owners not listed
+42513635,previous_owners,,1,median by year,previous owners not listed
+42652540,previous_owners,,1,median by year,previous owners not listed
+42433239,previous_owners,,1,median by year,previous owners not listed
+43032777,previous_owners,,2,median by year,previous owners not listed
+42804513,previous_owners,,2,median by year,previous owners not listed
+42613378,previous_owners,,1,median by year,previous owners not listed
+42527079,previous_owners,,1,median by year,previous owners not listed
+43080995,previous_owners,,1,median by year,previous owners not listed
+43080994,previous_owners,,1,median by year,previous owners not listed
+43080993,previous_owners,,1,median by year,previous owners not listed
+42685768,previous_owners,,2,median by year,previous owners not listed
+38286419,previous_owners,,1,median by year,previous owners not listed
+42780823,previous_owners,,1,median by year,previous owners not listed
+42645178,previous_owners,,1,median by year,previous owners not listed
+42790293,previous_owners,,3,median by year,previous owners not listed
+42288235,previous_owners,,1,median by year,previous owners not listed
+42648191,previous_owners,,2,median by year,previous owners not listed
+42693218,previous_owners,,1,median by year,previous owners not listed
+41497305,previous_owners,,1,median by year,previous owners not listed
+40751360,previous_owners,,1,median by year,previous owners not listed
+40197160,previous_owners,,1,median by year,previous owners not listed
+42935592,previous_owners,,1,median by year,previous owners not listed
+42452424,previous_owners,,1,median by year,previous owners not listed
+42551094,previous_owners,,1,median by year,previous owners not listed
+42551093,previous_owners,,1,median by year,previous owners not listed
+38596116,previous_owners,,1,median by year,previous owners not listed
+42551092,previous_owners,,1,median by year,previous owners not listed
+42926446,previous_owners,,1,median by year,previous owners not listed
+42121669,previous_owners,,1,median by year,previous owners not listed
+42049795,previous_owners,,1,median by year,previous owners not listed
+42935593,previous_owners,,1,median by year,previous owners not listed
+41414598,previous_owners,,1,median by year,previous owners not listed
+38495735,previous_owners,,1,median by year,previous owners not listed
+42611336,previous_owners,,2,median by year,previous owners not listed
+42825158,previous_owners,,1,median by year,previous owners not listed
+42825156,previous_owners,,1,median by year,previous owners not listed
+38085666,previous_owners,,1,median by year,previous owners not listed
+42825153,previous_owners,,1,median by year,previous owners not listed
+42825150,previous_owners,,1,median by year,previous owners not listed
+41129224,previous_owners,,1,median by year,previous owners not listed
+42784691,previous_owners,,2,median by year,previous owners not listed
+43043459,seller_type,,Private,most probable value,seller type not listed; no warranty
+43043350,seller_type,,Private,most probable value,seller type not listed; no warranty
+43018016,seller_type,,Private,most probable value,seller type not listed; no warranty
+42216444,seller_type,,Private,most probable value,seller type not listed; no warranty
+43074940,seller_type,,Private,most probable value,seller type not listed; no warranty
+43037553,seller_type,,Private,most probable value,seller type not listed; no warranty
+42354225,seller_type,,Private,most probable value,seller type not listed; no warranty
