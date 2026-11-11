@@ -10,8 +10,8 @@ Steps, in order:
                            (wrong prices like EUR 1 / 1234, mileages typed in
                            thousands or miles, missing engine size/transmission)
     2. Ignore the tuple  - no price / POA / placeholder price with no real price
-                           in the ad, mileage missing and not in the description,
-                           and ads that are not a VW Golf
+                           in the ad, mileage, engine size or transmission missing
+                           and not in the ad, and ads that are not a VW Golf
     3. Global constant   - trim = Unknown, is_import = Unknown,
                            NCT = N/A (car too new for its first NCT) or Unknown
     4. Median by year    - previous_owners filled with the median for that year
@@ -80,6 +80,7 @@ MANUAL_FIXES = {
     40548574: {'engine_size_litres': (2.0, 'title: "19 VW GOLF 2.0 TDI DSG"')},
     42875516: {'transmission': ('Automatic', 'transmission field now filled in on the ad; description: "DSG"')},
     42806844: {'transmission': ('Manual', 'description: "6 speed manual"')},
+    42094895: {'transmission': ('Manual', 'description mentions a short shifter; checked by the group: manual')},
 }
 
 
@@ -112,6 +113,11 @@ DROP = {
     42985482: 'mileage 200 km is fake on a 2011 car; not in the description',
     43090330: 'mileage 224 km is fake on a 2009 car; not in the description',
     41762506: 'mileage 175 km is fake on a 2016 car; not in the description',
+
+    # Engine size or transmission missing and not recoverable from the ad
+    42980316: 'engine size missing; ad only says "1.tsi" (could be 1.4 or 1.5)',
+    42629967: 'engine size missing; eTSI could be 1.0 or 1.5',
+    43075863: 'transmission missing and not in the description',
 }
 
 

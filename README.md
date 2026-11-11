@@ -106,3 +106,27 @@ Settings (output folder, delays, timeout) are constants at the top of the file.
   phone numbers, emails and addresses are never extracted.
 * If many ads fail with HTTP 429 (too many requests), increase `MIN_DELAY`
   and `MAX_DELAY` at the top of the script.
+
+## Cleaning and classification
+
+After scraping, two more scripts turn the raw CSV into the report's results:
+
+```powershell
+.venv\Scripts\python clean_data.py              # data/carData.csv -> data/carData_clean.csv
+.venv\Scripts\python classify_depreciation.py   # data/carData_clean.csv -> results/
+```
+
+* `clean_data.py` applies the cleaning methods (ignore the tuple, fill in
+  manually, global constant, median by year, most probable value) and logs
+  every removed row and changed value in `data/cleaning_log.csv`.
+* `classify_depreciation.py` labels each car **Faster**, **Normal** or
+  **Slower** depending on whether its price is more than 15% below, within
+  15% of, or more than 15% above the typical price of Golfs from the same
+  year (regular and performance Golfs compared separately). It then trains
+  and tests a decision tree and Naive Bayes on the other attributes.
+* `tdidt.py` holds the two classifiers, written from scratch following the
+  course notes: TDIDT with the Gini index or information gain, and Naive Bayes.
+* `figures.py` draws the charts.
+
+Outputs in `results/`: `results.txt` (every number), `tree_rules.txt` (the
+tree as IF-THEN rules), CSV tables, and charts in `results/figures/`.
