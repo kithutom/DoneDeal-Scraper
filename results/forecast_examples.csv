@@ -1,0 +1,13 @@
+car,years_ahead,age,mileage_km,predicted,Faster,Normal,Slower,typical_price
+"2017 1.6 TDI Trendline, manual, 210,000 km, 3 owners, private, NCT expired",0,9.0,210000,Normal,0.32,0.63,0.05,13433
+"2017 1.6 TDI Trendline, manual, 210,000 km, 3 owners, private, NCT expired",3,12.0,276316,Faster,0.98,0.02,0.0,9860
+"2017 1.6 TDI Trendline, manual, 210,000 km, 3 owners, private, NCT expired",5,14.0,320526,Faster,0.85,0.15,0.0,5950
+"2015 1.6 TDI Highline, manual, 160,000 km, 2 owners, dealer with warranty",0,11.0,160000,Normal,0.15,0.7,0.15,12201
+"2015 1.6 TDI Highline, manual, 160,000 km, 2 owners, dealer with warranty",3,14.0,201739,Faster,0.48,0.48,0.03,6836
+"2015 1.6 TDI Highline, manual, 160,000 km, 2 owners, dealer with warranty",5,16.0,229565,Slower,0.1,0.3,0.6,3739
+"2021 1.5 TSI Life, automatic, 45,000 km, 1 owner, dealer with warranty",0,5.0,45000,Normal,0.05,0.85,0.09,21817
+"2021 1.5 TSI Life, automatic, 45,000 km, 1 owner, dealer with warranty",3,8.0,69545,Normal,0.05,0.85,0.09,15518
+"2021 1.5 TSI Life, automatic, 45,000 km, 1 owner, dealer with warranty",5,10.0,85909,Normal,0.02,0.59,0.39,11950
+"2019 GTI 2.0, automatic, 60,000 km, 1 owner, dealer with warranty",0,7.0,60000,Normal,0.05,0.85,0.09,30349
+"2019 GTI 2.0, automatic, 60,000 km, 1 owner, dealer with warranty",3,10.0,84000,Normal,0.02,0.59,0.39,19832
+"2019 GTI 2.0, automatic, 60,000 km, 1 owner, dealer with warranty",5,12.0,100000,Normal,0.02,0.59,0.39,16016

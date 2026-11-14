@@ -1,115 +1,73 @@
-Decision tree (Gini), depth 6, 38 leaves, trained on 872 cars. Most cars first.
+Decision tree (Gini), depth 5, 24 leaves, trained on 997 cars. Most cars first.
 
-IF Mileage (km) <= 179,032 AND 8.5 < Age (years) <= 12.5 AND Km per year <= 10,576 AND Engine size (L) <= 1.3 AND Imported in {No, Yes}
-   THEN Normal   [75 cars: Faster 1%, Normal 83%, Slower 16%]
+IF Mileage (km) <= 164,950 AND Age (years) <= 9.5 AND 2,510 < Km per year <= 17,826
+   THEN Normal   [328 cars: Faster 5%, Normal 85%, Slower 9%]
 
-IF Mileage (km) <= 85,900 AND 3.5 < Age (years) <= 8.5 AND Km per year <= 18,005 AND Engine size (L) > 1.3
-   THEN Normal   [65 cars: Faster 0%, Normal 63%, Slower 37%]
+IF Mileage (km) <= 164,950 AND 9.5 < Age (years) <= 12.5 AND Km per year <= 17,826 AND County = Outside Dublin
+   THEN Normal   [131 cars: Faster 8%, Normal 54%, Slower 37%]
 
-IF Mileage (km) <= 179,032 AND 8.5 < Age (years) <= 12.5 AND Km per year <= 10,576 AND Engine size (L) > 1.3 AND Imported in {No, Yes}
-   THEN Normal   [56 cars: Faster 7%, Normal 57%, Slower 36%]
+IF Mileage (km) <= 164,950 AND 9.5 < Age (years) <= 12.5 AND Km per year <= 17,826 AND County = Dublin
+   THEN Normal   [83 cars: Faster 7%, Normal 78%, Slower 14%]
 
-IF Mileage (km) <= 85,900 AND Age (years) <= 3.5 AND Km per year <= 18,005 AND Engine size (L) > 1.3
-   THEN Normal   [54 cars: Faster 4%, Normal 83%, Slower 13%]
+IF Mileage (km) <= 164,950 AND Age (years) <= 12.5 AND Km per year > 17,826 AND Engine size (L) > 1.45 AND Body type in {Hatchback, Other}
+   THEN Normal   [54 cars: Faster 19%, Normal 78%, Slower 4%]
 
-IF Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND 5,202 < Km per year <= 18,005 AND Engine size (L) <= 1.3 AND NCT in {Over 6 months, Unknown}
-   THEN Normal   [50 cars: Faster 0%, Normal 100%, Slower 0%]
+IF 164,950 < Mileage (km) <= 224,299 AND Km per year > 16,397 AND Trim level in {High, Mid, Unknown}
+   THEN Faster   [51 cars: Faster 63%, Normal 35%, Slower 2%]
 
-IF Mileage (km) <= 179,032 AND 8.5 < Age (years) <= 12.5 AND Km per year > 10,576 AND Imported in {No, Yes} AND Warranty = Yes
-   THEN Normal   [46 cars: Faster 22%, Normal 70%, Slower 9%]
+IF Mileage (km) > 224,299 AND Km per year > 16,397 AND Age (years) <= 12.5
+   THEN Faster   [47 cars: Faster 98%, Normal 2%, Slower 0%]
 
-IF Mileage (km) <= 179,032 AND Age (years) > 8.5 AND Engine size (L) > 1.3 AND Imported = Unknown AND County = Outside Dublin AND Trim level = High
-   THEN Slower   [42 cars: Faster 0%, Normal 5%, Slower 95%]
+IF 164,950 < Mileage (km) <= 215,021 AND 13,130 < Km per year <= 16,397
+   THEN Faster   [29 cars: Faster 48%, Normal 48%, Slower 3%]
 
-IF Mileage (km) > 231,170 AND Age (years) <= 14.5 AND Previous owners <= 3.5
-   THEN Faster   [41 cars: Faster 100%, Normal 0%, Slower 0%]
+IF Mileage (km) <= 164,950 AND Age (years) <= 12.5 AND Km per year > 17,826 AND Engine size (L) > 1.45 AND Body type = Estate
+   THEN Normal   [28 cars: Faster 46%, Normal 54%, Slower 0%]
 
-IF Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year > 18,005 AND Engine size (L) > 1.45 AND Imported in {No, Unknown} AND Body type = Hatchback
-   THEN Normal   [32 cars: Faster 0%, Normal 94%, Slower 6%]
+IF Mileage (km) <= 164,950 AND Age (years) <= 9.5 AND Km per year <= 2,510
+   THEN Normal   [24 cars: Faster 0%, Normal 58%, Slower 42%]
 
-IF Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year > 18,005 AND Engine size (L) > 1.45 AND Imported in {No, Unknown} AND Body type in {Estate, Other}
-   THEN Normal   [26 cars: Faster 15%, Normal 69%, Slower 15%]
+IF Mileage (km) > 224,299 AND Km per year > 16,397 AND 12.5 < Age (years) <= 14.5
+   THEN Faster   [20 cars: Faster 85%, Normal 15%, Slower 0%]
 
-IF Mileage (km) <= 179,032 AND 8.5 < Age (years) <= 12.5 AND Km per year > 10,576 AND Imported in {No, Yes} AND Warranty = No
-   THEN Faster   [24 cars: Faster 42%, Normal 42%, Slower 17%]
+IF 164,950 < Mileage (km) <= 215,021 AND Km per year <= 13,130
+   THEN Normal   [19 cars: Faster 21%, Normal 53%, Slower 26%]
 
-IF 85,900 < Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year <= 18,005 AND Engine size (L) > 1.3 AND Trim level in {High, Mid, Unknown}
-   THEN Normal   [23 cars: Faster 0%, Normal 100%, Slower 0%]
+IF 164,950 < Mileage (km) <= 224,299 AND Km per year > 16,397 AND Trim level = Base
+   THEN Normal   [19 cars: Faster 32%, Normal 63%, Slower 5%]
 
-IF Mileage (km) <= 179,032 AND Age (years) > 12.5 AND Km per year <= 8,696 AND Imported in {No, Yes} AND Transmission = Automatic
-   THEN Slower   [23 cars: Faster 0%, Normal 4%, Slower 96%]
+IF 224,299 < Mileage (km) <= 327,191 AND Km per year > 16,397 AND Age (years) > 14.5
+   THEN Faster   [19 cars: Faster 42%, Normal 26%, Slower 32%]
 
-IF 215,826 < Mileage (km) <= 231,170 AND Age (years) <= 14.5
-   THEN Faster   [19 cars: Faster 84%, Normal 16%, Slower 0%]
+IF Mileage (km) <= 164,950 AND Age (years) <= 12.5 AND Km per year > 17,826 AND Engine size (L) <= 1.45
+   THEN Faster   [18 cars: Faster 72%, Normal 28%, Slower 0%]
 
-IF Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year > 18,005 AND Engine size (L) <= 1.45
-   THEN Faster   [17 cars: Faster 82%, Normal 18%, Slower 0%]
+IF Mileage (km) <= 113,989 AND Age (years) > 12.5 AND Warranty = No
+   THEN Slower   [18 cars: Faster 0%, Normal 22%, Slower 78%]
 
-IF 179,032 < Mileage (km) <= 215,826 AND Age (years) <= 14.5 AND 16,540 < Km per year <= 23,071 AND Warranty = No
-   THEN Faster   [17 cars: Faster 94%, Normal 6%, Slower 0%]
+IF Mileage (km) <= 90,524 AND Age (years) > 12.5 AND Warranty = Yes
+   THEN Slower   [18 cars: Faster 0%, Normal 0%, Slower 100%]
 
-IF Mileage (km) > 231,170 AND Age (years) <= 14.5 AND Previous owners > 3.5
-   THEN Faster   [17 cars: Faster 88%, Normal 12%, Slower 0%]
+IF 113,989 < Mileage (km) <= 164,950 AND Age (years) > 12.5 AND Engine size (L) <= 1.5
+   THEN Normal   [14 cars: Faster 7%, Normal 79%, Slower 14%]
 
-IF Mileage (km) <= 179,032 AND Age (years) > 8.5 AND Engine size (L) <= 1.3 AND Km per year > 6,541 AND Imported = Unknown AND County = Dublin
-   THEN Normal   [15 cars: Faster 7%, Normal 87%, Slower 7%]
+IF Mileage (km) > 327,191 AND Km per year > 16,397 AND Age (years) > 14.5
+   THEN Faster   [13 cars: Faster 85%, Normal 8%, Slower 8%]
 
-IF 179,032 < Mileage (km) <= 215,826 AND Age (years) <= 14.5 AND Km per year <= 16,540
-   THEN Faster   [15 cars: Faster 53%, Normal 47%, Slower 0%]
+IF Mileage (km) > 229,166 AND 14,569 < Km per year <= 16,397
+   THEN Normal   [12 cars: Faster 25%, Normal 50%, Slower 25%]
 
-IF 179,032 < Mileage (km) <= 225,403 AND Age (years) > 14.5 AND Km per year <= 17,150
-   THEN Normal   [15 cars: Faster 40%, Normal 53%, Slower 7%]
+IF 164,950 < Mileage (km) <= 224,299 AND Km per year > 16,397 AND Trim level = Performance
+   THEN Faster   [12 cars: Faster 92%, Normal 8%, Slower 0%]
 
-IF 179,032 < Mileage (km) <= 215,826 AND Age (years) <= 14.5 AND Km per year > 23,071
-   THEN Normal   [14 cars: Faster 36%, Normal 64%, Slower 0%]
+IF 90,524 < Mileage (km) <= 113,989 AND Age (years) > 12.5 AND Warranty = Yes
+   THEN Slower   [10 cars: Faster 0%, Normal 10%, Slower 90%]
 
-IF Mileage (km) <= 179,032 AND Age (years) > 8.5 AND Engine size (L) > 1.3 AND Imported = Unknown AND County = Dublin
-   THEN Slower   [13 cars: Faster 0%, Normal 46%, Slower 54%]
-
-IF 179,032 < Mileage (km) <= 215,826 AND Age (years) <= 14.5 AND 16,540 < Km per year <= 23,071 AND Warranty = Yes
-   THEN Faster   [13 cars: Faster 69%, Normal 31%, Slower 0%]
-
-IF Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year <= 18,005 AND Engine size (L) <= 1.3 AND NCT in {1-6 months, Expired, Not due yet}
-   THEN Normal   [12 cars: Faster 17%, Normal 83%, Slower 0%]
-
-IF Mileage (km) <= 179,032 AND Age (years) > 8.5 AND Engine size (L) <= 1.3 AND Km per year <= 6,541 AND Imported = Unknown
-   THEN Slower   [12 cars: Faster 0%, Normal 42%, Slower 58%]
-
-IF Mileage (km) <= 179,032 AND Age (years) > 12.5 AND Km per year > 10,437 AND Imported in {No, Yes}
-   THEN Normal   [12 cars: Faster 0%, Normal 92%, Slower 8%]
-
-IF Mileage (km) > 327,191 AND Age (years) > 14.5 AND Km per year > 17,150
-   THEN Faster   [12 cars: Faster 83%, Normal 0%, Slower 17%]
-
-IF 85,900 < Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year <= 18,005 AND Engine size (L) > 1.3 AND Trim level in {Base, Performance}
-   THEN Normal   [11 cars: Faster 36%, Normal 64%, Slower 0%]
-
-IF Mileage (km) <= 179,032 AND Age (years) > 8.5 AND Engine size (L) <= 1.3 AND Km per year > 6,541 AND Imported = Unknown AND County = Outside Dublin
-   THEN Normal   [11 cars: Faster 0%, Normal 64%, Slower 36%]
-
-IF Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year <= 5,202 AND Engine size (L) <= 1.3 AND NCT in {Over 6 months, Unknown}
-   THEN Normal   [10 cars: Faster 0%, Normal 90%, Slower 10%]
-
-IF Mileage (km) <= 131,874 AND Age (years) <= 8.5 AND Km per year > 18,005 AND Engine size (L) > 1.45 AND Imported = Yes
-   THEN Normal   [10 cars: Faster 20%, Normal 80%, Slower 0%]
-
-IF 131,874 < Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND Km per year > 18,005 AND Engine size (L) > 1.45 AND Imported = Yes
-   THEN Faster   [10 cars: Faster 60%, Normal 40%, Slower 0%]
-
-IF Mileage (km) <= 179,032 AND Age (years) > 8.5 AND Engine size (L) > 1.3 AND Imported = Unknown AND County = Outside Dublin AND Trim level in {Mid, Performance, Unknown}
-   THEN Slower   [10 cars: Faster 10%, Normal 10%, Slower 80%]
-
-IF Mileage (km) <= 179,032 AND Age (years) > 12.5 AND Km per year <= 8,696 AND Imported in {No, Yes} AND Transmission = Manual
+IF 113,989 < Mileage (km) <= 164,950 AND Age (years) > 12.5 AND Engine size (L) > 1.5
    THEN Slower   [10 cars: Faster 10%, Normal 30%, Slower 60%]
 
-IF Mileage (km) <= 179,032 AND Age (years) > 12.5 AND 8,696 < Km per year <= 10,437 AND Imported in {No, Yes}
-   THEN Normal   [10 cars: Faster 10%, Normal 50%, Slower 40%]
+IF 215,021 < Mileage (km) <= 229,166 AND Km per year <= 16,397
+   THEN Faster   [10 cars: Faster 80%, Normal 20%, Slower 0%]
 
-IF Mileage (km) > 225,403 AND Age (years) > 14.5 AND Km per year <= 17,150 AND Previous owners <= 4.5
-   THEN Normal   [10 cars: Faster 0%, Normal 60%, Slower 40%]
-
-IF Mileage (km) > 225,403 AND Age (years) > 14.5 AND Km per year <= 17,150 AND Previous owners > 4.5
-   THEN Slower   [10 cars: Faster 30%, Normal 10%, Slower 60%]
-
-IF 179,032 < Mileage (km) <= 327,191 AND Age (years) > 14.5 AND Km per year > 17,150
-   THEN Faster   [10 cars: Faster 50%, Normal 10%, Slower 40%]
+IF Mileage (km) > 229,166 AND Km per year <= 14,569
+   THEN Slower   [10 cars: Faster 10%, Normal 30%, Slower 60%]

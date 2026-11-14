@@ -92,12 +92,12 @@ def label_scatter(d, band, path):
     rng = np.random.default_rng(0)
     for ax, group in zip(axes, ['Regular', 'Performance']):
         g = d[d.group == group]
-        curve = g.groupby('year').expected_price.first().sort_index()
+        curve = g.groupby('year').year_price.first().sort_index()
         ax.fill_between(curve.index, curve * (1 - band), curve * (1 + band),
                         color=MUTED, alpha=0.13, linewidth=0, zorder=1)
         for c in ['Normal', 'Faster', 'Slower']:
             s = g[g.label == c]
-            ax.scatter(s.year + rng.uniform(-0.3, 0.3, len(s)), s.price_eur, s=16,
+            ax.scatter(s.year + rng.uniform(-0.3, 0.3, len(s)), s.adjusted_price, s=16,
                        color=CLASS_COLORS[c], edgecolors=SURFACE, linewidths=0.6, zorder=2)
         ax.plot(curve.index, curve, color=INK, lw=2, solid_capstyle='round', zorder=3)
         ax.set_yscale('log')
@@ -110,16 +110,16 @@ def label_scatter(d, band, path):
         ax.set_xlabel('Year of the car')
         ax.set_title(f'{group} Golfs ({len(g):,} cars)' if group == 'Regular'
                      else f'Performance Golfs: GTI, GTD, GTE, R ({len(g)} cars)')
-    axes[0].set_ylabel('Asking price (log scale)')
+    axes[0].set_ylabel('Asking price, adjusted for trim level (log scale)')
     handles = [Line2D([], [], marker='o', ls='', ms=7, color=CLASS_COLORS[c],
                       label=f'{c}: {"more than 15% below" if c == "Faster" else "more than 15% above" if c == "Slower" else "within 15% of"} typical')
                for c in CLASSES]
     handles += [Line2D([], [], color=INK, lw=2, label='Typical price for its year'),
                 Patch(color=MUTED, alpha=0.25, label='±15% band')]
     fig.legend(handles=handles, loc='upper left', bbox_to_anchor=(0.005, legend_y(fig)), ncol=5,
-               fontsize=9, handletextpad=0.4, columnspacing=1.4)
+               fontsize=8.5, handletextpad=0.3, columnspacing=1.0)
     header(fig, 'Class label: has the car lost value faster or slower than similar Golfs of its age?',
-           "Each dot is one car, compared with the median price of Golfs from the same year in its group.")
+           "Each dot is one car, compared with the median price of Golfs from the same year, group and trim level.")
     save(fig, path, reserve=1.1)
 
 
@@ -371,38 +371,54 @@ def class_shares(shares, attributes, path):
 
 
 # ---------------------------------------------------------------------------
-# 8. Value lost per year
+# 8. Value kept by age
 # ---------------------------------------------------------------------------
-def value_loss(loss, path):
-    rows = []
-    for family, g in loss.groupby('attribute', sort=False):
-        if family != 'All':
-            rows.append(('header', family, None, None))
-        for _, r in g.iterrows():
-            rows.append(('bar', r.group, r.value_lost_per_year, r.cars))
-    rows = rows[::-1]
-    fig, ax = plt.subplots(figsize=(8, 0.34 * len(rows) + 1.4))
-    overall = loss.loc[loss.attribute == 'All', 'value_lost_per_year'].iloc[0]
-    labels = []
-    for i, (kind, name, v, n) in enumerate(rows):
-        if kind == 'header':
-            labels.append('')
-            ax.text(-0.001, i, name, ha='right', va='center', fontsize=9.5, fontweight='semibold',
-                    transform=ax.get_yaxis_transform())
-            continue
-        labels.append(name)
-        ax.barh(i, v, height=0.6, color=BLUE)
-        ax.text(v + 0.002, i, f'{v:.1%}  ({n:,} cars)', va='center', fontsize=8.5, color=INK_2)
-    ax.axvline(overall, color=MUTED, lw=1, zorder=0)
-    ax.set_yticks(range(len(rows)), labels)
-    ax.tick_params(axis='y', length=0)
-    ax.spines['left'].set_visible(False)
-    ax.xaxis.set_major_locator(MultipleLocator(0.05))
-    ax.xaxis.set_major_formatter(PercentFormatter(1, decimals=0))
-    ax.set_xlim(0, loss.value_lost_per_year.max() * 1.3)
-    ax.grid(axis='x')
+def value_kept(kept, path):
+    fig, ax = plt.subplots(figsize=(8.5, 4.8))
+    styles = {'Regular': (BLUE, 'Regular Golfs')}
+    for group, (color, label) in styles.items():
+        g = kept[kept.group == group].reset_index(drop=True)
+        x = np.arange(len(g))
+        ax.plot(x, g.value_kept, color=color, lw=2, marker='o', ms=6,
+                markeredgecolor=SURFACE, markeredgewidth=1.5, label=label)
+        if group == 'Regular':
+            for xi, v in zip(x, g.value_kept):
+                ax.text(xi, v - 0.035, f'{v:.0%}', ha='center', va='top', fontsize=8.5, color=INK_2)
+            ax.set_xticks(x, g.age_band)
+    ax.yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+    ax.set_ylim(0, 1.1)
+    ax.grid(axis='y')
     ax.set_axisbelow(True)
-    ax.set_xlabel('Average share of value lost per year')
-    header(fig, 'How fast Golfs lose value, by group',
-           'Slope of log(price) against age, cars up to 15 years old. Grey line = all Golfs.')
+    ax.set_xlabel('Age of the car (years)')
+    ax.set_ylabel('Median price as a share of a 0-1 year old Golf')
+    header(fig, 'How much of its value a Golf keeps as it ages',
+           'Regular Golfs: median asking price of each age band, divided by the median price at 0-1 years old.')
+    save(fig, path)
+
+
+# ---------------------------------------------------------------------------
+# 9. ROC curves
+# ---------------------------------------------------------------------------
+def roc_curves(roc, path):
+    """roc: {model: {class: (fpr, tpr, auc)}}. One panel per class."""
+    fig, axes = plt.subplots(1, 3, figsize=(12, 4.6), sharey=True)
+    colors = {'Decision tree (Gini)': BLUE, 'Naive Bayes': ORANGE}
+    for ax, c in zip(axes, CLASSES):
+        ax.plot([0, 1], [0, 1], color=MUTED, lw=1, ls='--')
+        for model, curves in roc.items():
+            fpr, tpr, auc = curves[c]
+            ax.plot(fpr, tpr, color=colors[model], lw=2, label=f'{model} (area {auc:.2f})')
+        ax.set_xlim(0, 1)
+        ax.set_ylim(0, 1.02)
+        ax.set_aspect('equal')
+        ax.xaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+        ax.yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+        ax.grid(True)
+        ax.set_axisbelow(True)
+        ax.set_xlabel('False positive rate')
+        ax.set_title(f'{c} against the rest')
+        ax.legend(loc='lower right', fontsize=8.5)
+    axes[0].set_ylabel('True positive rate')
+    header(fig, 'ROC curves on the test cars',
+           'The closer a curve is to the top-left corner, the better. Dashed line = guessing.')
     save(fig, path)

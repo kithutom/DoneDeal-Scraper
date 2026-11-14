@@ -6,210 +6,256 @@ Cars in carData_clean.csv: 1250
 Dropped 4 pre-order cars from 2027 -> 1246 cars used
 Performance Golfs (GTI, GTD, GTE, R, R32): 159 (21 found from the ad title because trim was Unknown)
 
-Class label: price / typical price of Golfs from the same year and group
+Trim adjustment (median of price / typical price for its year):
+  Base x0.93, High x1.06, Mid x0.99, Performance x1.02, Unknown x1.01
+
+Class label: price / typical price of Golfs from the same year, group and trim level
   Faster = ratio <= 0.85   (lost more value than similar cars of its age)
   Normal = 0.85 < ratio <= 1.15
   Slower = ratio > 1.15    (held its value better)
 
-  Faster    281  (23%)
-  Normal    686  (55%)
-  Slower    279  (22%)
+  Faster    293  (24%)
+  Normal    732  (59%)
+  Slower    221  (18%)
 
 Label by group (row %):
 label       Faster Normal Slower
 group                           
-Performance    31%    43%    26%
-Regular        21%    57%    22%
+Performance    33%    42%    25%
+Regular        22%    61%    17%
 
 Without the Regular/Performance split, 75% of performance Golfs would be 'Slower' just because they cost more new.
 
-Attributes (14): Mileage (km), Km per year, Age (years), Previous owners, Engine size (L), Trim level, Fuel, Transmission, Body type, Seller type, Warranty, Imported, NCT, County
+Attributes (13): Mileage (km), Km per year, Age (years), Previous owners, Engine size (L), Trim level, Fuel, Transmission, Body type, Seller type, Warranty, NCT, County
 
 ==============================================================================
 2. SPLIT
 ==============================================================================
-Training cars: 872   Test cars: 374 (kept unseen until the end)
+Training cars: 997   Test cars: 249 (kept unseen until the end)
 
 ==============================================================================
 3. CHOOSING THE TREE DEPTH (5-fold cross-validation on the training cars)
 ==============================================================================
  depth train_accuracy cv_accuracy cv_sd  leaves
-     1          65.6%       64.9%  3.0%     2.0
-     2          67.3%       65.8%  4.0%     4.0
-     3          70.7%       68.2%  3.0%     8.0
-     4          74.2%       68.1%  2.5%    14.4
-     5          76.4%       67.5%  3.1%    21.8
-     6          77.2%       69.0%  2.0%    30.0
-     7          77.8%       67.3%  1.8%    38.0
-     8          78.1%       67.4%  1.7%    44.2
-     9          78.2%       67.5%  1.7%    47.8
-    10          78.2%       67.5%  1.7%    49.2
-    11          78.2%       67.5%  1.7%    49.2
-    12          78.2%       67.5%  1.7%    49.2
+     1          67.4%       66.6%  1.8%     2.0
+     2          71.0%       68.5%  2.8%     4.0
+     3          72.3%       69.4%  2.3%     8.0
+     4          73.8%       68.6%  1.3%    14.8
+     5          74.8%       69.8%  2.1%    23.6
+     6          75.3%       68.0%  2.1%    31.4
+     7          76.5%       67.5%  2.8%    38.6
+     8          76.9%       67.0%  3.3%    45.2
+     9          77.0%       67.2%  3.1%    50.2
+    10          77.2%       67.3%  2.8%    53.4
+    11          77.2%       67.1%  3.1%    54.8
+    12          77.2%       67.4%  2.7%    56.2
 
-Chosen depth (Gini): 6   (information gain: 5)
+Chosen depth (Gini): 5   (information gain: 4)
 Deeper trees keep fitting the training cars better, but stop improving on cars they have not seen: that gap is overfitting.
 
 ==============================================================================
-4. TEST RESULTS (30% of cars never used in training)
+4. TEST RESULTS (20% of cars never used in training)
 ==============================================================================
-  Decision tree (Gini)               71.1%
-  Decision tree (information gain)   70.1%
-  Naive Bayes                        66.0%
-  Baseline (always 'Normal')         55.1%
-  (decision tree accuracy on its own training cars: 77.1%)
+  Decision tree (Gini)               72.7%
+  Decision tree (information gain)   71.5%
+  Naive Bayes                        66.7%
+  Baseline (always 'Normal')         58.6%
+  (decision tree accuracy on its own training cars: 74.0%)
 
 Confusion matrix, decision tree (Gini) - rows: actual, columns: predicted
 Predicted  Faster  Normal  Slower
 Actual                           
-Faster         57      23       4
-Normal         26     168      12
-Slower          2      41      41
+Faster         38      21       0
+Normal         16     128       2
+Slower          1      28      15
 
-       precision recall  cars
-Faster       67%    68%    84
-Normal       72%    82%   206
-Slower       72%    49%    84
+       precision recall f_measure  cars
+Faster       69%    64%       67%    59
+Normal       72%    88%       79%   146
+Slower       88%    34%       49%    44
 
 Confusion matrix, Naive Bayes
 Predicted  Faster  Normal  Slower
 Actual                           
-Faster         62      21       1
-Normal         42     135      29
-Slower          7      27      50
+Faster         42      15       2
+Normal         25     109      12
+Slower          3      26      15
+
+       precision recall f_measure  cars
+Faster       60%    71%       65%    59
+Normal       73%    75%       74%   146
+Slower       52%    34%       41%    44
+
+Average F-measure over the three classes:
+  Decision tree (Gini) 65.0%   Naive Bayes 60.0%
+
+Area under the ROC curve (one class against the rest; 0.5 = guessing, 1 = perfect):
+  Decision tree (Gini)   Faster 0.84   Normal 0.77   Slower 0.84
+  Naive Bayes            Faster 0.87   Normal 0.75   Slower 0.86
 
 ==============================================================================
 5. STABILITY: 30 DIFFERENT RANDOM SPLITS (depths fixed as above)
 ==============================================================================
                            model  mean  std   min   max
-            Decision tree (Gini) 70.1% 2.3% 65.8% 74.6%
-Decision tree (information gain) 70.7% 2.0% 67.4% 74.6%
-                     Naive Bayes 63.8% 2.3% 60.4% 68.4%
-Baseline (always majority class) 55.1% 0.0% 55.1% 55.1%
+            Decision tree (Gini) 69.5% 2.5% 65.5% 74.7%
+Decision tree (information gain) 69.9% 2.5% 63.5% 73.9%
+                     Naive Bayes 64.9% 3.1% 57.4% 69.9%
+Baseline (always majority class) 58.6% 0.0% 58.6% 58.6%
 
-Decision tree (Gini) beat Naive Bayes on 30 of 30 splits.
+Decision tree (Gini) beat Naive Bayes on 26 of 30 splits.
 
 ==============================================================================
 5b. ACCURACY LOST WHEN ONE ATTRIBUTE IS REMOVED (same 30 splits, Gini tree)
 ==============================================================================
-All attributes: 70.1%
+All attributes: 69.5%
 attribute_removed accuracy change
-      Age (years)    68.1%  -2.0%
-  Engine size (L)    69.7%  -0.4%
-             Fuel    69.8%  -0.4%
-     Mileage (km)    69.9%  -0.2%
-         Imported    69.9%  -0.2%
-     Transmission    70.0%  -0.1%
-  Previous owners    70.1%  -0.1%
-         Warranty    70.1%  -0.0%
-      Seller type    70.1%  +0.0%
-           County    70.2%  +0.1%
-              NCT    70.2%  +0.1%
-        Body type    70.4%  +0.2%
-      Km per year    70.5%  +0.3%
-       Trim level    70.5%  +0.4%
+      Age (years)    66.6%  -2.9%
+       Trim level    69.0%  -0.5%
+  Engine size (L)    69.3%  -0.3%
+           County    69.4%  -0.2%
+  Previous owners    69.4%  -0.1%
+      Km per year    69.5%  -0.0%
+         Warranty    69.5%  +0.0%
+      Seller type    69.5%  +0.0%
+     Transmission    69.6%  +0.0%
+        Body type    69.6%  +0.1%
+              NCT    69.6%  +0.1%
+             Fuel    69.9%  +0.3%
+     Mileage (km)    70.0%  +0.4%
 A small change means the other attributes carry the same information.
 
 ==============================================================================
 6. WHAT THE TREE LEARNED
 ==============================================================================
 Attribute importance (share of the total Gini drop):
-  Mileage (km)       40.8%
-  Age (years)        19.2%
-  Km per year        13.6%
-  Engine size (L)    12.9%
-  Imported            7.6%
-  County              1.7%
-  Warranty            1.2%
-  Trim level          0.9%
-  Previous owners     0.9%
-  Transmission        0.6%
-  Body type           0.5%
-  NCT                 0.2%
-  Seller type         0.0%
+  Mileage (km)       52.6%
+  Age (years)        22.8%
+  Km per year        13.8%
+  Engine size (L)     4.0%
+  County              2.8%
+  Trim level          2.5%
+  Body type           1.2%
+  Warranty            0.4%
+  Previous owners     0.0%
+  Transmission        0.0%
   Fuel                0.0%
+  Seller type         0.0%
+  NCT                 0.0%
 
 Workshop lift (similar-car pairs, price gap) vs tree importance:
       attribute  workshop_lift tree_importance
     Seller type           3.04            0.0%
-    Age (years)           2.60           19.2%
-   Mileage (km)           2.37           40.8%
-         County           2.33            1.7%
-       Warranty           2.33            1.2%
-   Transmission           1.95            0.6%
-            NCT           1.95            0.2%
-     Trim level           1.84            0.9%
-Previous owners           1.77            0.9%
-       Imported           1.72            7.6%
-Engine size (L)           1.53           12.9%
-      Body type           1.53            0.5%
+    Age (years)           2.60           22.8%
+   Mileage (km)           2.37           52.6%
+       Warranty           2.33            0.4%
+         County           2.33            2.8%
+            NCT           1.95            0.0%
+   Transmission           1.95            0.0%
+     Trim level           1.84            2.5%
+Previous owners           1.77            0.0%
+      Body type           1.53            1.2%
+Engine size (L)           1.53            4.0%
 (Lift looked at one attribute at a time. The tree credits an attribute only for what
  it adds after the others, so attributes that overlap share or lose credit.)
 
-Imported = 'Unknown' (filled in by the global-constant cleaning step):
+Import status was left out. 'Unknown' (the global constant from cleaning):
   266 cars; 100% dealer ads (all cars: 72%)
-  median mileage 72,039 km (known import status: 116,644 km)
-  class mix: Faster 3%, Normal 54%, Slower 44%   (known: Faster 28%, Normal 55%, Slower 17%)
+  class mix: Faster 3%, Normal 64%, Slower 34%   (known: Faster 29%, Normal 57%, Slower 13%)
+  The value says how the ad was filled in, not what the car is, so a tree
+  that used it would be learning the ad form (Han et al., p.88).
 
-Largest leaves (all 38 rules in results/tree_rules.txt):
-  IF Mileage (km) <= 179,032 AND 8.5 < Age (years) <= 12.5 AND Km per year <= 10,576 AND Engine size (L) <= 1.3 AND Imported in {No, Yes}
-     THEN Normal  [75 cars: Faster 1%, Normal 83%, Slower 16%]
-  IF Mileage (km) <= 85,900 AND 3.5 < Age (years) <= 8.5 AND Km per year <= 18,005 AND Engine size (L) > 1.3
-     THEN Normal  [65 cars: Faster 0%, Normal 63%, Slower 37%]
-  IF Mileage (km) <= 179,032 AND 8.5 < Age (years) <= 12.5 AND Km per year <= 10,576 AND Engine size (L) > 1.3 AND Imported in {No, Yes}
-     THEN Normal  [56 cars: Faster 7%, Normal 57%, Slower 36%]
-  IF Mileage (km) <= 85,900 AND Age (years) <= 3.5 AND Km per year <= 18,005 AND Engine size (L) > 1.3
-     THEN Normal  [54 cars: Faster 4%, Normal 83%, Slower 13%]
-  IF Mileage (km) <= 179,032 AND Age (years) <= 8.5 AND 5,202 < Km per year <= 18,005 AND Engine size (L) <= 1.3 AND NCT in {Over 6 months, Unknown}
-     THEN Normal  [50 cars: Faster 0%, Normal 100%, Slower 0%]
-  IF Mileage (km) <= 179,032 AND 8.5 < Age (years) <= 12.5 AND Km per year > 10,576 AND Imported in {No, Yes} AND Warranty = Yes
-     THEN Normal  [46 cars: Faster 22%, Normal 70%, Slower 9%]
+Largest leaves (all 24 rules in results/tree_rules.txt):
+  IF Mileage (km) <= 164,950 AND Age (years) <= 9.5 AND 2,510 < Km per year <= 17,826
+     THEN Normal  [328 cars: Faster 5%, Normal 85%, Slower 9%]
+  IF Mileage (km) <= 164,950 AND 9.5 < Age (years) <= 12.5 AND Km per year <= 17,826 AND County = Outside Dublin
+     THEN Normal  [131 cars: Faster 8%, Normal 54%, Slower 37%]
+  IF Mileage (km) <= 164,950 AND 9.5 < Age (years) <= 12.5 AND Km per year <= 17,826 AND County = Dublin
+     THEN Normal  [83 cars: Faster 7%, Normal 78%, Slower 14%]
+  IF Mileage (km) <= 164,950 AND Age (years) <= 12.5 AND Km per year > 17,826 AND Engine size (L) > 1.45 AND Body type in {Hatchback, Other}
+     THEN Normal  [54 cars: Faster 19%, Normal 78%, Slower 4%]
+  IF 164,950 < Mileage (km) <= 224,299 AND Km per year > 16,397 AND Trim level in {High, Mid, Unknown}
+     THEN Faster  [51 cars: Faster 63%, Normal 35%, Slower 2%]
+  IF Mileage (km) > 224,299 AND Km per year > 16,397 AND Age (years) <= 12.5
+     THEN Faster  [47 cars: Faster 98%, Normal 2%, Slower 0%]
 
 Purest Faster and Slower leaves (at least 20 cars):
-  IF Mileage (km) > 231,170 AND Age (years) <= 14.5 AND Previous owners <= 3.5
-     THEN Faster  [41 cars, 100% Faster]
-  IF Mileage (km) <= 179,032 AND Age (years) > 12.5 AND Km per year <= 8,696 AND Imported in {No, Yes} AND Transmission = Automatic
-     THEN Slower  [23 cars, 96% Slower]
+  IF Mileage (km) > 224,299 AND Km per year > 16,397 AND Age (years) <= 12.5
+     THEN Faster  [47 cars, 98% Faster]
+  IF Mileage (km) <= 164,950 AND Age (years) <= 9.5 AND Km per year <= 2,510
+     THEN Normal  [24 cars, 42% Slower]
 
 Example cars:
   2017 1.6 TDI Trendline, manual, 210,000 km, 3 owners, private, NCT expired
-     -> Faster  (Faster 94%, Normal 6%, Slower 0%)
+     -> Normal  (Faster 32%, Normal 63%, Slower 5%)
   2015 1.6 TDI Highline, manual, 160,000 km, 2 owners, dealer with warranty
-     -> Normal  (Faster 22%, Normal 70%, Slower 9%)
+     -> Normal  (Faster 8%, Normal 54%, Slower 37%)
   2021 1.5 TSI Life, automatic, 45,000 km, 1 owner, dealer with warranty
-     -> Normal  (Faster 0%, Normal 63%, Slower 37%)
+     -> Normal  (Faster 5%, Normal 85%, Slower 9%)
   2019 GTI 2.0, automatic, 60,000 km, 1 owner, dealer with warranty
-     -> Normal  (Faster 0%, Normal 63%, Slower 37%)
+     -> Normal  (Faster 5%, Normal 85%, Slower 9%)
 
-Test cars put in the opposite class (Faster <-> Slower): 6 of 374
-  43058924  2007 Unknown      288,374 km  Private EUR  5,450 vs typical  7,552  actual Faster, predicted Slower
-  42999157  2008 Unknown      228,526 km  Private EUR  4,000 vs typical  9,459  actual Faster, predicted Slower
-  43081912  2016 GTI Clubsport 118,000 km  Private EUR 22,950 vs typical 19,480  actual Slower, predicted Faster
-  42999720  2009 Unknown      307,313 km  Private EUR  3,600 vs typical  2,828  actual Slower, predicted Faster
-  43088761  2011 BlueMotion   264,000 km  Private EUR  2,650 vs typical  4,586  actual Faster, predicted Slower
-  43066433  2009 Unknown      289,000 km  Private EUR  2,400 vs typical  2,828  actual Faster, predicted Slower
+Test cars put in the opposite class (Faster <-> Slower): 1 of 249
+  43080876  2011 Trendline    365,208 km  Dealer  EUR  5,500 vs typical  4,251  actual Slower, predicted Faster
 
 Test accuracy by age (years), with the share of cars that are not Normal:
           cars accuracy faster_or_slower
 age_band                                
-0-3         49      82%              22%
-4-7         73      77%              26%
-8-11       158      70%              48%
-12+         94      63%              66%
+0-3         29      86%              24%
+4-7         54      89%              20%
+8-11       112      62%              42%
+12+         54      70%              70%
 
 ==============================================================================
-7. SHARE OF VALUE LOST PER YEAR (fit of log price against age, cars up to 15 years old)
+7. VALUE KEPT BY AGE (median price of each age band / median price at 0-1 years)
 ==============================================================================
-      group    attribute  cars ages value_lost_per_year
-  All Golfs          All  1186 0-15               11.9%
-    Regular        Group  1036 0-15               12.0%
-Performance        Group   150 0-15               12.0%
-     Petrol         Fuel   767 0-15               10.7%
-     Diesel         Fuel   382 0-15               14.4%
-     Manual Transmission   431 0-15               13.3%
-  Automatic Transmission   755 0-15               10.6%
-       Base   Trim level   287 0-15               13.2%
-        Mid   Trim level   177 4-15               14.0%
-       High   Trim level   423 0-15               10.7%
-  Hatchback    Body type   928 0-15               11.8%
-     Estate    Body type   242 0-15               12.8%
+    group age_band  cars median_price value_kept
+All Golfs      0-1    60       38,495       100%
+All Golfs      2-3    97       29,800        77%
+All Golfs      4-5    90       25,950        67%
+All Golfs      6-7   163       18,950        49%
+All Golfs      8-9   240       16,450        43%
+All Golfs    10-11   272       12,450        32%
+All Golfs    12-13   176        9,950        26%
+All Golfs    14-15    88        5,300        14%
+All Golfs      16+    60        2,725         7%
+  Regular      0-1    56       37,972       100%
+  Regular      2-3    90       29,648        78%
+  Regular      4-5    72       24,988        66%
+  Regular      6-7   146       18,942        50%
+  Regular      8-9   204       15,825        42%
+  Regular    10-11   237       11,995        32%
+  Regular    12-13   150        9,950        26%
+  Regular    14-15    81        5,000        13%
+  Regular      16+    51        2,500         7%
+
+==============================================================================
+8. FORECAST: WILL THIS GOLF BE WORTH MORE OR LESS THAN OTHERS OF ITS AGE?
+==============================================================================
+The forecast tree uses only what is known about the car years ahead:
+  Mileage (km), Km per year, Age (years), Previous owners, Engine size (L), Trim level, Fuel, Transmission, Body type
+  (left out, because they describe the ad: Seller type, Warranty, NCT, County)
+Depth 5; test accuracy 72.7%; mean over 30 splits 69.5% (all attributes: 69.5%)
+
+The car is moved forward: age + N years, mileage + N x its km per year so far.
+The tree, trained on Golfs that are that age today, then classifies the future car.
+Typical price = todays price of Golfs of that age, group and trim, in todays euro.
+
+  2017 1.6 TDI Trendline, manual, 210,000 km, 3 owners, private, NCT expired
+     today      : age 9, 210,000 km -> Normal (Faster 32%, Normal 63%, Slower 5%); typical EUR 13,433, so EUR 11,418 to 15,448
+     in 3 years: age 12, 276,316 km -> Faster (Faster 98%, Normal 2%, Slower 0%); typical EUR 9,860, so under EUR 8,381
+     in 5 years: age 14, 320,526 km -> Faster (Faster 85%, Normal 15%, Slower 0%); typical EUR 5,950, so under EUR 5,057
+
+  2015 1.6 TDI Highline, manual, 160,000 km, 2 owners, dealer with warranty
+     today      : age 11, 160,000 km -> Normal (Faster 15%, Normal 70%, Slower 15%); typical EUR 12,201, so EUR 10,371 to 14,032
+     in 3 years: age 14, 201,739 km -> Faster (Faster 48%, Normal 48%, Slower 3%); typical EUR 6,836, so under EUR 5,810
+     in 5 years: age 16, 229,565 km -> Slower (Faster 10%, Normal 30%, Slower 60%); typical EUR 3,739, so over EUR 4,300
+
+  2021 1.5 TSI Life, automatic, 45,000 km, 1 owner, dealer with warranty
+     today      : age 5,  45,000 km -> Normal (Faster 5%, Normal 85%, Slower 9%); typical EUR 21,817, so EUR 18,544 to 25,090
+     in 3 years: age 8,  69,545 km -> Normal (Faster 5%, Normal 85%, Slower 9%); typical EUR 15,518, so EUR 13,190 to 17,845
+     in 5 years: age 10,  85,909 km -> Normal (Faster 2%, Normal 59%, Slower 39%); typical EUR 11,950, so EUR 10,158 to 13,742
+
+  2019 GTI 2.0, automatic, 60,000 km, 1 owner, dealer with warranty
+     today      : age 7,  60,000 km -> Normal (Faster 5%, Normal 85%, Slower 9%); typical EUR 30,349, so EUR 25,797 to 34,901
+     in 3 years: age 10,  84,000 km -> Normal (Faster 2%, Normal 59%, Slower 39%); typical EUR 19,832, so EUR 16,857 to 22,807
+     in 5 years: age 12, 100,000 km -> Normal (Faster 2%, Normal 59%, Slower 39%); typical EUR 16,016, so EUR 13,613 to 18,418

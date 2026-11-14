@@ -4,6 +4,10 @@ tdidt.py - the two classifiers from the course notes, written from scratch.
 DecisionTree  Top-Down Induction of Decision Trees (TDIDT). Each node is split
               in two, using the attribute and test that give the lowest Gini
               index (or, with criterion='entropy', the highest information gain).
+              Both measures use binary splits here (the notes' third split
+              case: "A is discrete-valued and a binary tree must be produced"),
+              so the two are compared on equal terms. Information gain is not
+              given one branch per value as in the notes' worked example.
 NaiveBayes    Naive Bayes for categorical attributes.
 
 Both take a pandas DataFrame of attributes (one row per car) and a Series of

@@ -1,0 +1,7 @@
+model,class,auc
+Decision tree (Gini),Faster,0.845
+Decision tree (Gini),Normal,0.766
+Decision tree (Gini),Slower,0.839
+Naive Bayes,Faster,0.874
+Naive Bayes,Normal,0.747
+Naive Bayes,Slower,0.856

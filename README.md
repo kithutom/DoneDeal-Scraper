@@ -1,9 +1,10 @@
 # DoneDeal Used-Car Scraper
 
 A single-file Python scraper that collects used-car ads from DoneDeal.ie and
-appends them to a star-schema CSV dataset: one table of cars and one table of
-prices. Each ad is scraped once only. The dataset is intended for training a model
-that predicts used-car depreciation in Ireland.
+appends them to one flat CSV table, one row per ad (vehicle details and the
+asking price on the day it was scraped). Each ad is scraped once only. The
+dataset is used to train a model that predicts whether a Golf will be worth
+more or less than other Golfs of its age.
 
 ## Setup (Windows)
 
@@ -122,11 +123,25 @@ After scraping, two more scripts turn the raw CSV into the report's results:
 * `classify_depreciation.py` labels each car **Faster**, **Normal** or
   **Slower** depending on whether its price is more than 15% below, within
   15% of, or more than 15% above the typical price of Golfs from the same
-  year (regular and performance Golfs compared separately). It then trains
-  and tests a decision tree and Naive Bayes on the other attributes.
+  year, group (regular or performance) and trim level. It then trains a
+  decision tree and Naive Bayes on 80% of the cars and tests them on the
+  other 20%. Import status is not used as an attribute (see `results.txt`).
+* `predict_car.py` forecasts one car: it moves the car forward N years (older,
+  more kilometres at its own rate) and asks the tree whether Golfs like that
+  are worth more or less than others of that age today.
 * `tdidt.py` holds the two classifiers, written from scratch following the
   course notes: TDIDT with the Gini index or information gain, and Naive Bayes.
 * `figures.py` draws the charts.
 
 Outputs in `results/`: `results.txt` (every number), `tree_rules.txt` (the
 tree as IF-THEN rules), CSV tables, and charts in `results/figures/`.
+
+## Forecasting a car
+
+```powershell
+.venv\Scripts\python predict_car.py --year 2021 --mileage 45000 --engine 1.5 --trim Base --fuel Petrol --transmission Automatic --years 5
+```
+
+Trim is `Base`, `Mid`, `High`, `Performance` or `Unknown`; body defaults to
+`Hatchback` and owners to 1. The answer assumes the market in N years treats
+cars the way it does today: the data is a single day's snapshot.
